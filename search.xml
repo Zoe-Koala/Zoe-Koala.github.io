@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="VS2019"><a href="#VS2019" class="headerlink" title="VS2019"></a>VS2019</h1><h2 id="无法解析的外部符号"><a href="#无法解析的外部符号" class="headerlink" title="无法解析的外部符号"></a>无法解析的外部符号</h2><p>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows程序设计</title>
+    <url>/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<p>《Windows程序设计》学习，漫长的过程，加油冲冲冲！~</p>
+<a id="more"></a>
+<h1 id="第一章-第一个Windows程序"><a href="#第一章-第一个Windows程序" class="headerlink" title="第一章 第一个Windows程序"></a>第一章 第一个Windows程序</h1><h2 id="Windows简单程序"><a href="#Windows简单程序" class="headerlink" title="Windows简单程序"></a>Windows简单程序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># include &lt;windows.h&gt;</span><br><span class="line">int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</span><br><span class="line">&#123;</span><br><span class="line">    MessageBox(NULL, TEXT (&quot;Hello, Windows 98!&quot;), TEXT (&quot;helloMsg&quot;), 0);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p>头文件<code># include &lt;windows.h&gt;</code></p>
+<ol>
+<li>囊括了其他若干Windows头文件</li>
+<li>头文件定义了Windows中所有的数据类型、函数调用、数据结构及常量标识符</li>
+<li>至关重要</li>
+</ol>
+<h2 id="程序入口"><a href="#程序入口" class="headerlink" title="程序入口"></a>程序入口</h2><p><code>WinMain</code><br>总是以下面的方式出现：<br><code>int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</code><br>在WINBASE.H中声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int</span><br><span class="line">WINAPI</span><br><span class="line">WinMain&#123;</span><br><span class="line">    HINSTANCE hInstance,</span><br><span class="line">    HINSTANCE hPrevInstance,</span><br><span class="line">    LPSTR lpCmdLine,</span><br><span class="line">    int nShowCmd</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>LPSTR</code>和<code>PSTR</code>这两种数据类型在<code>WINNT.H</code>中都声明为字符串的指针。前缀<code>LP</code>代表长指针(Long Pointer)，16位Windows的产物。<br>前缀<code>i</code>表示<code>int</code>，前缀<code>sz</code>表示“以零结尾的字符串”</p>
+<p><strong>WinMain参数</strong><br>第一个参数：实例句柄（用来标识某些东西）<br>第二个参数：NULL（通常）<br>第三个参数：用来运行程序的命令行<br>第四个参数：指明程序最初如何显示</p>
+<h2 id="MessageBox函数"><a href="#MessageBox函数" class="headerlink" title="MessageBox函数"></a>MessageBox函数</h2><p>显示短信息<br>第一个参数：窗口句柄<br>第二个参数：将要在信息框里出现的文本字符串<br>第三个参数：标题栏上显示的文本字符串<br>第四个参数：以前缀MB_打头的常量组合</p>
+<h2 id="编译、链接及运行"><a href="#编译、链接及运行" class="headerlink" title="编译、链接及运行"></a>编译、链接及运行</h2><p>编译阶段，编译器从C源代码文件产生一个.obj(目标)文件<br>链接阶段，连接器把.obj文件和。LIB(库程序)文件放到一起产生.exe(可执行)文件</p>
+<h1 id="第二章-Unicode简介"><a href="#第二章-Unicode简介" class="headerlink" title="第二章 Unicode简介"></a>第二章 Unicode简介</h1><h2 id="字符集简史"><a href="#字符集简史" class="headerlink" title="字符集简史"></a>字符集简史</h2><h2 id="宽字符和C语言"><a href="#宽字符和C语言" class="headerlink" title="宽字符和C语言"></a>宽字符和C语言</h2><h3 id="char数据类型"><a href="#char数据类型" class="headerlink" title="char数据类型"></a>char数据类型</h3><p><code>char c=&#39;A&#39;;</code>变量c需要一个字节的存储空间，用十六进制0x41来被初始化；<br><code>char * p;</code>指针p需要4个字节的存储空间<br><code>char * p=&quot;Hello!&quot;;</code>p任然需要四个字节的存储空间；字符串存储在<strong>静态内存</strong>中并使用7个字节的存储空间(6+1)<br><code>char a[10];</code>编译器保留了十个字节的存储空间给这个数组，sizeof(a)==10；<br>定义在静态内存中的数组。全局变量<code>char a[]=&quot;Hello!&quot;;</code>，局部变量<code>static char a[]=&quot;Hello!&quot;;</code></p>
+<h3 id="更宽的字符"><a href="#更宽的字符" class="headerlink" title="更宽的字符"></a>更宽的字符</h3><p>宽字符是基于wchar_t数据类型的，其被定义在多个头文件中，包括WCHAR.H，如<code>typedef unsigned short wchar_t</code><br>因此wchar_t数据类型和一个无符号短整型一样，为16位宽；</p>
+<ol>
+<li>定义一个包含单个宽字符的变量：<code>wchar_t c=&#39;A&#39;;</code>变量c是一个两个字节的值0x0041(最低有效数字优先)</li>
+<li>定义一个已初始化的指向宽字符串的指针：`wchar_t *p=L”Hello!”;’(大写的L紧邻左引号)，没个字符占用两个字节；指针变量p依旧占用4个字节，但是字符串占用14个字节(每个字符需要两个字节)</li>
+<li>定义一个宽字符数组：<code>static wchar_t a[]=L&quot;Hello!&quot;;</code>sizeof(a)==14；a[1]的值是宽字符’e’或0x0065；</li>
+<li>注意：<code>L</code>很重要，它告诉编译器你想要的字符串用每个字符两个字节的方式存储</li>
+</ol>
+<h3 id="宽字符库函数"><a href="#宽字符库函数" class="headerlink" title="宽字符库函数"></a>宽字符库函数</h3><p>宽字符版本的strlen函数被称为wcslen(“宽字符字符串长度”)，并定义在STRING.H和WCHAR.H中。<br>strlen函数的声明：<code>size_t __cdecl strlen(const char*);</code><br>wcslen函数的声明：<code>size_t __cdecl wcslen(const wchar_t*);</code><br>所以确定宽字符串的长度：<code>iLength=wcslen(pw);</code></p>
+<h3 id="维护一个源代码文件"><a href="#维护一个源代码文件" class="headerlink" title="维护一个源代码文件"></a>维护一个源代码文件</h3><h2 id="宽字符和Windows"><a href="#宽字符和Windows" class="headerlink" title="宽字符和Windows"></a>宽字符和Windows</h2><h3 id="Windows头文件的类型"><a href="#Windows头文件的类型" class="headerlink" title="Windows头文件的类型"></a>Windows头文件的类型</h3><h3 id="Windows函数调用"><a href="#Windows函数调用" class="headerlink" title="Windows函数调用"></a>Windows函数调用</h3><h3 id="Windows的字符串函数"><a href="#Windows的字符串函数" class="headerlink" title="Windows的字符串函数"></a>Windows的字符串函数</h3><p>ILength=lstrlen(pString);<br>pString=lstrcpy(pString1,pString2);<br>pString=lstrcpyn(pString1,pString2);<br>pString=lstrcat(pString1,pString2);<br>iComp=lstrcmp(pString1,pString2);<br>iComp=lstrcmpi(pString1,pString2);<br>以上与c运行库中函数功能对应，定义了UNICODE标识符后，接受宽字符，否则只接受常规字符串</p>
+<h3 id="在Windows中使用printf"><a href="#在Windows中使用printf" class="headerlink" title="在Windows中使用printf"></a>在Windows中使用printf</h3><p>sprintf函数定义：<br>int sprintf (char * szBuffer,const char * szFormat, ……);<br>第一个参数是字符缓冲区，第二个是格式字符串；该函数返回字符串的长度<br>Microsoft版的c语言运行库和Windows所支持的所有sprintf类函数</p>
+<img src="/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/sprintf%E7%B1%BB%E5%87%BD%E6%95%B0.png" class="">
+<h3 id="格式化的消息框"><a href="#格式化的消息框" class="headerlink" title="格式化的消息框"></a>格式化的消息框</h3><p>(兼容性问题导致课本代码无法运行)</p>
+<h1 id="窗口与消息"><a href="#窗口与消息" class="headerlink" title="窗口与消息"></a>窗口与消息</h1><h2 id="窗口的创建"><a href="#窗口的创建" class="headerlink" title="窗口的创建"></a>窗口的创建</h2><p>CreateWindow函数</p>
+<h3 id="系统结构概述"><a href="#系统结构概述" class="headerlink" title="系统结构概述"></a>系统结构概述</h3><p>窗口过程</p>
+<h3 id="HELLOWIN程序"><a href="#HELLOWIN程序" class="headerlink" title="HELLOWIN程序"></a>HELLOWIN程序</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;Windows.h&gt;</span><br><span class="line">#pragma comment(lib, &quot;winmm&quot;)</span><br><span class="line">LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);</span><br><span class="line"></span><br><span class="line">int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</span><br><span class="line">&#123;</span><br><span class="line">	static TCHAR szAppName[] &#x3D; TEXT(&quot;HelloWin&quot;);</span><br><span class="line">	HWND hwnd;</span><br><span class="line">	MSG msg;</span><br><span class="line">	WNDCLASS wndclass;</span><br><span class="line">	wndclass.style &#x3D; CS_HREDRAW | CS_VREDRAW;</span><br><span class="line">	wndclass.lpfnWndProc &#x3D; WndProc;</span><br><span class="line">	wndclass.cbClsExtra &#x3D; 0;</span><br><span class="line">	wndclass.cbWndExtra &#x3D; 0;</span><br><span class="line">	wndclass.hInstance &#x3D; hInstance;</span><br><span class="line">	wndclass.hIcon &#x3D; LoadIcon(NULL, IDI_APPLICATION);</span><br><span class="line">	wndclass.hCursor &#x3D; LoadCursor(NULL, IDC_ARROW);</span><br><span class="line">	wndclass.hbrBackground &#x3D; (HBRUSH)GetStockObject(WHITE_BRUSH);</span><br><span class="line">	wndclass.lpszMenuName &#x3D; NULL;</span><br><span class="line">	wndclass.lpszClassName &#x3D; szAppName;</span><br><span class="line"></span><br><span class="line">	if (!RegisterClass(&amp;wndclass)) &#123;</span><br><span class="line">		MessageBox(NULL, TEXT(&quot;This program requires windows NT!&quot;), szAppName, MB_ICONERROR);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	hwnd &#x3D; CreateWindow(szAppName,</span><br><span class="line">		TEXT(&quot;The Hello Program&quot;),</span><br><span class="line">		WS_OVERLAPPEDWINDOW,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		NULL,</span><br><span class="line">		NULL,</span><br><span class="line">		hInstance,</span><br><span class="line">		NULL);</span><br><span class="line"></span><br><span class="line">	ShowWindow(hwnd, iCmdShow);</span><br><span class="line">	UpdateWindow(hwnd);</span><br><span class="line"></span><br><span class="line">	while (GetMessage(&amp;msg, NULL, 0, 0))</span><br><span class="line">	&#123;</span><br><span class="line">		TranslateMessage(&amp;msg);</span><br><span class="line">		DispatchMessageW(&amp;msg);</span><br><span class="line">	&#125;</span><br><span class="line">	return msg.wParam;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	HDC hdc;</span><br><span class="line">	PAINTSTRUCT ps;</span><br><span class="line">	RECT rect;</span><br><span class="line"></span><br><span class="line">	switch (message)</span><br><span class="line">	&#123;</span><br><span class="line">	case WM_CREATE:</span><br><span class="line">		PlaySound(TEXT(&quot;hellowin.wav&quot;), NULL, SND_FILENAME | SND_ASYNC);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_PAINT:</span><br><span class="line">		hdc &#x3D; BeginPaint(hwnd, &amp;ps);</span><br><span class="line">		GetClientRect(hwnd, &amp;rect);</span><br><span class="line">		DrawText(hdc, TEXT(&quot;Hello, Windows 98!&quot;), -1, &amp;rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);</span><br><span class="line">		EndPaint(hwnd, &amp;ps);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_DESTROY:</span><br><span class="line">		PostQuitMessage(0);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return DefWindowProc(hwnd, message, wParam, lParam);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通盘考虑"><a href="#通盘考虑" class="headerlink" title="通盘考虑"></a>通盘考虑</h3><h4 id="Windows函数调用-1"><a href="#Windows函数调用-1" class="headerlink" title="Windows函数调用"></a>Windows函数调用</h4><h4 id="大写标识符"><a href="#大写标识符" class="headerlink" title="大写标识符"></a>大写标识符</h4><p>在Windows头文件中定义的<br>很多以两个或三个字母作为前缀，其后紧跟一个下划线</p>
+<h4 id="新数据类型"><a href="#新数据类型" class="headerlink" title="新数据类型"></a>新数据类型</h4><h4 id="理解句柄"><a href="#理解句柄" class="headerlink" title="理解句柄"></a>理解句柄</h4><h4 id="匈牙利标记法"><a href="#匈牙利标记法" class="headerlink" title="匈牙利标记法"></a>匈牙利标记法</h4><p>前缀<code>sz</code>表示“以0结束的字符串”<br>前缀<code>h</code>表示“句柄”<br>前缀<code>i</code>表示“整型”<br>前缀<code>lpfn</code>表示“指向函数的长指针”<br>前缀<code>cb</code>表示“字节数”<br>前缀<code>hbr</code>表示“画刷的句柄”<br>前缀<code>lpsz</code>表示“指向以零结束的字符串的长指针”<br>前缀<code>IDI</code>表示“图标的标识符”<br>前缀<code>hbr</code>表示“画刷的句柄”</p>
+<h3 id="窗口类的注册"><a href="#窗口类的注册" class="headerlink" title="窗口类的注册"></a>窗口类的注册</h3><p>在创建应用程序窗口之前，必须调用函数<code>RegisterClass</code>来注册窗口类；该函数只需要一个参数，即一个指向WNDCLASS(HELLOWIN.C程序)类型的结构的指针；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;Windows.h&gt;</span><br><span class="line">#pragma comment(lib, &quot;winmm&quot;)</span><br><span class="line">LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);</span><br><span class="line"></span><br><span class="line">int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</span><br><span class="line">&#123;</span><br><span class="line">	static TCHAR szAppName[] &#x3D; TEXT(&quot;HelloWin&quot;);</span><br><span class="line">	HWND hwnd;</span><br><span class="line">	MSG msg;</span><br><span class="line">	WNDCLASS wndclass;   &#x2F;&#x2F;定义WNDCLASS类型的结构，10个字段</span><br><span class="line">	wndclass.style &#x3D; CS_HREDRAW | CS_VREDRAW;  &#x2F;&#x2F;32位“类风格”的标识符</span><br><span class="line">	wndclass.lpfnWndProc &#x3D; WndProc;  &#x2F;&#x2F;用于基于该窗口的窗口过程的地址；处理传递给所有基于该窗口类创建的窗口的所有消息。引用的实际上是指向函数的指针</span><br><span class="line">	wndclass.cbClsExtra &#x3D; 0;  &#x2F;&#x2F;应用程序根据需要来使用这些额外空间</span><br><span class="line">	wndclass.cbWndExtra &#x3D; 0;</span><br><span class="line">	wndclass.hInstance &#x3D; hInstance;  &#x2F;&#x2F;实例句柄</span><br><span class="line">	wndclass.hIcon &#x3D; LoadIcon(NULL, IDI_APPLICATION);  &#x2F;&#x2F;为所有基于该窗口类的窗口设定一个图标</span><br><span class="line">	&#x2F;&#x2F;为了获取预定义图标的句柄，需要调用函数LoadIcon，并将函数的第一个参数设置为NULL；而从保存在磁盘中的应用程序的可执行文件中加载自定义图标时，该参数必须设定为hInstance</span><br><span class="line">	&#x2F;&#x2F;第二个参数用于标识该图标</span><br><span class="line">	wndclass.hCursor &#x3D; LoadCursor(NULL, IDC_ARROW);&#x2F;&#x2F;载入一个预定义的鼠标指针(IDC_ARROW)，并返回指针的句柄</span><br><span class="line">	wndclass.hbrBackground &#x3D; (HBRUSH)GetStockObject(WHITE_BRUSH);&#x2F;&#x2F;这类窗口的客户区指定背景色</span><br><span class="line">	wndclass.lpszMenuName &#x3D; NULL;&#x2F;&#x2F;窗口类的菜单</span><br><span class="line">	wndclass.lpszClassName &#x3D; szAppName;  &#x2F;&#x2F;窗口类的名称，允许用户任意命名。只创建一个窗口时，窗口类的名称通常与程序名相同</span><br><span class="line"></span><br><span class="line">	if (!RegisterClass(&amp;wndclass)) &#123;  &#x2F;&#x2F;检测错误，如果定义了UNICODE标识符，程序调用RegisterClassW；Windows98下运行，RegisterClassW没有真正实现；</span><br><span class="line">		MessageBox(NULL, TEXT(&quot;This program requires windows NT!&quot;), szAppName, MB_ICONERROR);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	hwnd &#x3D; CreateWindow(szAppName,</span><br><span class="line">		TEXT(&quot;The Hello Program&quot;),</span><br><span class="line">		WS_OVERLAPPEDWINDOW,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		NULL,</span><br><span class="line">		NULL,</span><br><span class="line">		hInstance,</span><br><span class="line">		NULL);</span><br><span class="line"></span><br><span class="line">	ShowWindow(hwnd, iCmdShow);</span><br><span class="line">	UpdateWindow(hwnd);</span><br><span class="line"></span><br><span class="line">	while (GetMessage(&amp;msg, NULL, 0, 0))</span><br><span class="line">	&#123;</span><br><span class="line">		TranslateMessage(&amp;msg);</span><br><span class="line">		DispatchMessageW(&amp;msg);</span><br><span class="line">	&#125;</span><br><span class="line">	return msg.wParam;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	HDC hdc;</span><br><span class="line">	PAINTSTRUCT ps;</span><br><span class="line">	RECT rect;</span><br><span class="line"></span><br><span class="line">	switch (message)</span><br><span class="line">	&#123;</span><br><span class="line">	case WM_CREATE:</span><br><span class="line">		PlaySound(TEXT(&quot;hellowin.wav&quot;), NULL, SND_FILENAME | SND_ASYNC);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_PAINT:</span><br><span class="line">		hdc &#x3D; BeginPaint(hwnd, &amp;ps);</span><br><span class="line">		GetClientRect(hwnd, &amp;rect);</span><br><span class="line">		DrawText(hdc, TEXT(&quot;Hello, Windows 98!&quot;), -1, &amp;rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);</span><br><span class="line">		EndPaint(hwnd, &amp;ps);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_DESTROY:</span><br><span class="line">		PostQuitMessage(0);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return DefWindowProc(hwnd, message, wParam, lParam);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="窗口的创建-1"><a href="#窗口的创建-1" class="headerlink" title="窗口的创建"></a>窗口的创建</h3><p>基于同一窗口类可以创建许多不同的窗口；<br>理解各个参数</p>
+<img src="/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/CreatWindow.png" class="">
+
+
+<h3 id="窗口的显示"><a href="#窗口的显示" class="headerlink" title="窗口的显示"></a>窗口的显示</h3><p>CreateWindow调用返回，窗口已在Windows内部被创建。Windows已经分配了一块内存来保存CreateWindow已经分配了一块内存来保存CreateWindow调用中指定的窗口信息以及其他一些信息<br>Windows可通过窗口句柄来获取这些信息。<br>将窗口显示在屏幕上，需要调用另外两个函数：<br> <code>ShowWindow(hwnd, iCmdShow);</code><br>第一个参数是指向有CreateWindow所创建的窗口句柄；<br>第二个参数是WindMain函数所接受的iCmdShow值；该参数决定着窗口在屏幕中的初始显示形式(正常、最小化、最大化)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WinMain传给ShowWindow的参数值：</span><br><span class="line">正常：SW_SHOWNORMAL（窗口的客户区将被窗口类中所指定的背景画刷擦除，&#96;UpadteWindow(hwnd)&#96;使窗口客户区重绘）</span><br><span class="line">最大化：SW_SHOWMAXIMIZED</span><br><span class="line">显示在任务栏：SW_SHOWMINNOACTIVE</span><br></pre></td></tr></table></figure>
+
+<h3 id="消息循环"><a href="#消息循环" class="headerlink" title="消息循环"></a>消息循环</h3><p>开启消息循环的GetMessage函数用于从消息队列中对消息进行检索<br><code>GetMessage(&amp;msg,NULL,0,0)</code><br>将一个指向名称为msg的MSG结构变量的指针传给Windows<br>第二三四个参数分别设置为NULL或0，表明该程序希望获取由该程序所创建的窗口消息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hwnd：消息所指向的窗口句柄。</span><br><span class="line">message：消息标识符，用于标识消息的数字。对于每条消息，在Windows的头文件中都为其定义了一个已WM为前缀的标识符</span><br><span class="line">wParam：一个32位的“消息参数”，该参数的含义和取值决定于具体的信息</span><br><span class="line">lParam：一个32位的“消息参数”，该参数的含义和取值决定于具体的信息</span><br><span class="line">time：消息进入消息队列的时间</span><br><span class="line">pt：消息进入消息队列中时鼠标指针的位置坐标</span><br></pre></td></tr></table></figure>
+
+<h3 id="窗口过程"><a href="#窗口过程" class="headerlink" title="窗口过程"></a>窗口过程</h3><p>决定了窗口过程决定了窗口客户区的的显示内容以及窗口如何对用户的输入做出响应<br>窗口过程几乎由Windows自身调用</p>
+<h3 id="消息的处理"><a href="#消息的处理" class="headerlink" title="消息的处理"></a>消息的处理</h3><p>窗口过程所接受的每条消息都由一个数字来标识，即窗口过程的message参数<br>用DefWindowProc来对所有窗口过程没有处理的消息进行默认处理非常重要，否则其他的正常行为将无法进行</p>
+<h3 id="声音文件的播放"><a href="#声音文件的播放" class="headerlink" title="声音文件的播放"></a>声音文件的播放</h3><h3 id="WM-PAINT消息"><a href="#WM-PAINT消息" class="headerlink" title="WM_PAINT消息"></a>WM_PAINT消息</h3><p>当窗口的客户区的部分或全部“无效”且必须“更新”时，应用程序将得到此通知<br>对WM_PAINT消息的处理几乎总是从BeginPaint函数开始：<code>hdc=BeginPaint*hwnd,&amp;ps);</code>，以调用EndPaint函数结束：<code>EndPaint(hwnd,&amp;ps);</code><br>第一个参数均为程序的窗口句柄，第二个参数均指向一个类型为PAINTSTRUCT结构的指针</p>
+<h3 id="WM-DESTROY消息"><a href="#WM-DESTROY消息" class="headerlink" title="WM_DESTROY消息"></a>WM_DESTROY消息</h3><p>PostQuitMessage(0);</p>
+<h2 id="Windows编程中的若干难点"><a href="#Windows编程中的若干难点" class="headerlink" title="Windows编程中的若干难点"></a>Windows编程中的若干难点</h2><p>真正有价值的行为发生在窗口过程中</p>
+<h3 id="究竟是谁调用谁"><a href="#究竟是谁调用谁" class="headerlink" title="究竟是谁调用谁"></a>究竟是谁调用谁</h3><h3 id="队列消息和非队列消息"><a href="#队列消息和非队列消息" class="headerlink" title="队列消息和非队列消息"></a>队列消息和非队列消息</h3><p><strong>队列消息</strong>：由Windows放入程序的消息队列中的消息。(投递)。主要用用户的输入产生<br><strong>非队列消息</strong>：Windows对窗口过程的直接调用产生的。(发送)。包括队列消息以外的其他所有消息。通常由调用特定的Windows函数引起。</p>
+<h1 id="文本输出"><a href="#文本输出" class="headerlink" title="文本输出"></a>文本输出</h1><h2 id="绘制和重绘"><a href="#绘制和重绘" class="headerlink" title="绘制和重绘"></a>绘制和重绘</h2><h3 id="WM-PAINT消息-1"><a href="#WM-PAINT消息-1" class="headerlink" title="WM_PAINT消息"></a>WM_PAINT消息</h3><p>大多数Windows程序在WinMain函数初始化过程中会在进入消息循环之前调用UpdateWondow函数。<br>窗口过程收到一条WM_PAINT消息：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">用户移动一个窗口，导致原来被遮盖的部分窗口暴露出来；</span><br><span class="line">用户调整窗口的大小；</span><br><span class="line">程序调用ScrollWindow或ScrollDC函数滚动客户区；</span><br><span class="line">程序调用InvalidateRect或InvalidateRgn函数显示生成WM_PAINT消息</span><br></pre></td></tr></table></figure>
+<p>发送一条WM_PAINT消息：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">windows关闭了一个覆盖了部分窗口的对话框或消息框；</span><br><span class="line">下拉菜单被拉下然后被收回；</span><br><span class="line">显示提示信息</span><br></pre></td></tr></table></figure>
+<p>Windows保存被覆盖部分的显示内容，然后再恢复：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">鼠标在客户区内移动</span><br><span class="line">在客户区内拖动图标</span><br></pre></td></tr></table></figure>
+<p>程序保存所有用于绘制客户区的信息，但是只有在需要时才进行绘制–当收到WM_PAINT消息时。如果程序需要在其他时候更新客户区，可以强制Windows生成WM_PAINT消息。</p>
+<h3 id="有效矩形和无效矩形"><a href="#有效矩形和无效矩形" class="headerlink" title="有效矩形和无效矩形"></a>有效矩形和无效矩形</h3><p>窗口过程收到WM_PAINT消息时更新整个客户区，但通常只需要更新其中一个部分，最常见更新其中一个矩形区域。<br>需要重新绘制的部分被称作<code>无效区域</code>或<code>更新区域</code>。客户区中有一个无效区域将导致Windows在应用程序的消息低劣中放置一条WM_PAINT消息，只有程序客户区的一部分失效时，窗口过程才会接受到。</p>
+<h2 id="GDI简介"><a href="#GDI简介" class="headerlink" title="GDI简介"></a>GDI简介</h2><p>绘制一个窗口的客户区需要调用Windows的图形设备接口(GDI)函数。<br>最常用的字符输出函数TextOut：<code>TextOut (hdc, x, y, psText, iLength);</code>，向窗口客户区输出一个字符串。<code>psText</code>指向字符串的指针；<code>iLength</code>是字符串的长度；<code>x</code>、<code>y</code>定义了字符串在客户区中的开始位置；<code>hdc</code>是设备环境句柄。</p>
+<h3 id="设备环境"><a href="#设备环境" class="headerlink" title="设备环境"></a>设备环境</h3><p>句柄不过是一个数值，Windows内部用这个数值确定一个对象。<br>设备环境句柄是程序窗口使用GDI函数的“通行证”。<br><code>设备环境DC</code>是GDI内部维护的一个数据结构。与特定显示设备相关联。<br>程序在绘制前必须获得一个设备环境句柄。获取句柄之后，Windows会在内部的设备环境结构中填入默认的属性值。绘制完成之后必须释放设备环境句柄，释放之后这个句柄不再有效且不能再被使用，so获取释放应该在处理同一条消息的过程中。</p>
+<h3 id="获取设备环境句柄：方法一"><a href="#获取设备环境句柄：方法一" class="headerlink" title="获取设备环境句柄：方法一"></a>获取设备环境句柄：方法一</h3><p>可以在处理WM_PAINT消息时使用，牵涉到两个函数：<code>BeginPaint</code>和<code>EndPaint</code>，而这两个函数需要两个参数：窗口句柄和类型为PAINTSTRUCT结构的变量(ps)的地址。<br>窗口过程在处理WM_PAINT消息时必须成对的调用BeginPaint和EndPaint。如果窗口过程不处理WM_PAINT消息，WM_PAINT消息就会被传送给Windows默认的窗口过程DefWindowProc。</p>
+<h4 id="绘制信息结构"><a href="#绘制信息结构" class="headerlink" title="绘制信息结构"></a>绘制信息结构</h4><p><strong>PAINTSTRUCT</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef struct tagPAINTSTRUCT</span><br><span class="line">&#123;</span><br><span class="line">	HDC hdc;               &#x2F;&#x2F;设备环境句柄(BeginPaint函数的返回值)</span><br><span class="line">	BOOL fErase;           &#x2F;&#x2F;大多数情况设置为FALSE</span><br><span class="line">	RECT rcPaint;           &#x2F;&#x2F;定义无效矩形的边界，还是一个“裁剪”矩形</span><br><span class="line">	BOOL fRestore;</span><br><span class="line">	BYTE rgbReserved[32];</span><br><span class="line">&#125;PAINTSTRUCT;</span><br></pre></td></tr></table></figure>
+<h3 id="获取设备环境句柄：方法二"><a href="#获取设备环境句柄：方法二" class="headerlink" title="获取设备环境句柄：方法二"></a>获取设备环境句柄：方法二</h3><p>调用<code>GetDC</code>函数来获得窗口客户区的设备环境句柄，使用完以后调用ReleaseDC函数释放；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hdc&#x3D;GetDC(hwnd);</span><br><span class="line">(使用GDI函数)</span><br><span class="line">ReleaseDC(hend,hdc);</span><br></pre></td></tr></table></figure>
+<p>通常用于处理键盘消息或者鼠标消息<br>从GetDC返回的设备环境句柄中的裁剪矩形是整个客户区。不会将无效区域有效化；<br><code>ValidateRect (hwnd,NULL);</code>将整个客户区有效化<br>GetWindowDC返回的是整个窗口的设备环境句柄；</p>
+<h3 id="TEXTOUT函数详解"><a href="#TEXTOUT函数详解" class="headerlink" title="TEXTOUT函数详解"></a>TEXTOUT函数详解</h3><p>语法：<code>TextOut (hdc, x, y, psText, iLength);</code><br><code>hdc</code>设备环境句柄，既可以是GetDC返回的hdc值，也可以是处理WM_PAINT消息时从BeginPaint返回的hdc值；<br><code>psText</code>指向字符串的指针；<br><code>iLength</code>是字符串的长度；如果psText指向一个Unicode字符串，则字符串占用字节数将是iLength的两倍；<br><code>x</code>、<code>y</code>定义了字符串在客户区中的开始位置；</p>
+<h3 id="系统字体"><a href="#系统字体" class="headerlink" title="系统字体"></a>系统字体</h3><h3 id="字符大小"><a href="#字符大小" class="headerlink" title="字符大小"></a>字符大小</h3><h3 id="文本尺寸的度量"><a href="#文本尺寸的度量" class="headerlink" title="文本尺寸的度量"></a>文本尺寸的度量</h3><h3 id="文本的格式化"><a href="#文本的格式化" class="headerlink" title="文本的格式化"></a>文本的格式化</h3>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>千峰网络安全</title>
     <url>/2020/06/10/%E5%8D%83%E5%B3%B0%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</url>
     <content><![CDATA[<p>千峰网络安全入门笔记，持续更新ing…</p>
@@ -158,104 +256,6 @@
       </categories>
       <tags>
         <tag>安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows程序设计</title>
-    <url>/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<p>《Windows程序设计》学习，漫长的过程，加油冲冲冲！~</p>
-<a id="more"></a>
-<h1 id="第一章-第一个Windows程序"><a href="#第一章-第一个Windows程序" class="headerlink" title="第一章 第一个Windows程序"></a>第一章 第一个Windows程序</h1><h2 id="Windows简单程序"><a href="#Windows简单程序" class="headerlink" title="Windows简单程序"></a>Windows简单程序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># include &lt;windows.h&gt;</span><br><span class="line">int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</span><br><span class="line">&#123;</span><br><span class="line">    MessageBox(NULL, TEXT (&quot;Hello, Windows 98!&quot;), TEXT (&quot;helloMsg&quot;), 0);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p>头文件<code># include &lt;windows.h&gt;</code></p>
-<ol>
-<li>囊括了其他若干Windows头文件</li>
-<li>头文件定义了Windows中所有的数据类型、函数调用、数据结构及常量标识符</li>
-<li>至关重要</li>
-</ol>
-<h2 id="程序入口"><a href="#程序入口" class="headerlink" title="程序入口"></a>程序入口</h2><p><code>WinMain</code><br>总是以下面的方式出现：<br><code>int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</code><br>在WINBASE.H中声明如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int</span><br><span class="line">WINAPI</span><br><span class="line">WinMain&#123;</span><br><span class="line">    HINSTANCE hInstance,</span><br><span class="line">    HINSTANCE hPrevInstance,</span><br><span class="line">    LPSTR lpCmdLine,</span><br><span class="line">    int nShowCmd</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><code>LPSTR</code>和<code>PSTR</code>这两种数据类型在<code>WINNT.H</code>中都声明为字符串的指针。前缀<code>LP</code>代表长指针(Long Pointer)，16位Windows的产物。<br>前缀<code>i</code>表示<code>int</code>，前缀<code>sz</code>表示“以零结尾的字符串”</p>
-<p><strong>WinMain参数</strong><br>第一个参数：实例句柄（用来标识某些东西）<br>第二个参数：NULL（通常）<br>第三个参数：用来运行程序的命令行<br>第四个参数：指明程序最初如何显示</p>
-<h2 id="MessageBox函数"><a href="#MessageBox函数" class="headerlink" title="MessageBox函数"></a>MessageBox函数</h2><p>显示短信息<br>第一个参数：窗口句柄<br>第二个参数：将要在信息框里出现的文本字符串<br>第三个参数：标题栏上显示的文本字符串<br>第四个参数：以前缀MB_打头的常量组合</p>
-<h2 id="编译、链接及运行"><a href="#编译、链接及运行" class="headerlink" title="编译、链接及运行"></a>编译、链接及运行</h2><p>编译阶段，编译器从C源代码文件产生一个.obj(目标)文件<br>链接阶段，连接器把.obj文件和。LIB(库程序)文件放到一起产生.exe(可执行)文件</p>
-<h1 id="第二章-Unicode简介"><a href="#第二章-Unicode简介" class="headerlink" title="第二章 Unicode简介"></a>第二章 Unicode简介</h1><h2 id="字符集简史"><a href="#字符集简史" class="headerlink" title="字符集简史"></a>字符集简史</h2><h2 id="宽字符和C语言"><a href="#宽字符和C语言" class="headerlink" title="宽字符和C语言"></a>宽字符和C语言</h2><h3 id="char数据类型"><a href="#char数据类型" class="headerlink" title="char数据类型"></a>char数据类型</h3><p><code>char c=&#39;A&#39;;</code>变量c需要一个字节的存储空间，用十六进制0x41来被初始化；<br><code>char * p;</code>指针p需要4个字节的存储空间<br><code>char * p=&quot;Hello!&quot;;</code>p任然需要四个字节的存储空间；字符串存储在<strong>静态内存</strong>中并使用7个字节的存储空间(6+1)<br><code>char a[10];</code>编译器保留了十个字节的存储空间给这个数组，sizeof(a)==10；<br>定义在静态内存中的数组。全局变量<code>char a[]=&quot;Hello!&quot;;</code>，局部变量<code>static char a[]=&quot;Hello!&quot;;</code></p>
-<h3 id="更宽的字符"><a href="#更宽的字符" class="headerlink" title="更宽的字符"></a>更宽的字符</h3><p>宽字符是基于wchar_t数据类型的，其被定义在多个头文件中，包括WCHAR.H，如<code>typedef unsigned short wchar_t</code><br>因此wchar_t数据类型和一个无符号短整型一样，为16位宽；</p>
-<ol>
-<li>定义一个包含单个宽字符的变量：<code>wchar_t c=&#39;A&#39;;</code>变量c是一个两个字节的值0x0041(最低有效数字优先)</li>
-<li>定义一个已初始化的指向宽字符串的指针：`wchar_t *p=L”Hello!”;’(大写的L紧邻左引号)，没个字符占用两个字节；指针变量p依旧占用4个字节，但是字符串占用14个字节(每个字符需要两个字节)</li>
-<li>定义一个宽字符数组：<code>static wchar_t a[]=L&quot;Hello!&quot;;</code>sizeof(a)==14；a[1]的值是宽字符’e’或0x0065；</li>
-<li>注意：<code>L</code>很重要，它告诉编译器你想要的字符串用每个字符两个字节的方式存储</li>
-</ol>
-<h3 id="宽字符库函数"><a href="#宽字符库函数" class="headerlink" title="宽字符库函数"></a>宽字符库函数</h3><p>宽字符版本的strlen函数被称为wcslen(“宽字符字符串长度”)，并定义在STRING.H和WCHAR.H中。<br>strlen函数的声明：<code>size_t __cdecl strlen(const char*);</code><br>wcslen函数的声明：<code>size_t __cdecl wcslen(const wchar_t*);</code><br>所以确定宽字符串的长度：<code>iLength=wcslen(pw);</code></p>
-<h3 id="维护一个源代码文件"><a href="#维护一个源代码文件" class="headerlink" title="维护一个源代码文件"></a>维护一个源代码文件</h3><h2 id="宽字符和Windows"><a href="#宽字符和Windows" class="headerlink" title="宽字符和Windows"></a>宽字符和Windows</h2><h3 id="Windows头文件的类型"><a href="#Windows头文件的类型" class="headerlink" title="Windows头文件的类型"></a>Windows头文件的类型</h3><h3 id="Windows函数调用"><a href="#Windows函数调用" class="headerlink" title="Windows函数调用"></a>Windows函数调用</h3><h3 id="Windows的字符串函数"><a href="#Windows的字符串函数" class="headerlink" title="Windows的字符串函数"></a>Windows的字符串函数</h3><p>ILength=lstrlen(pString);<br>pString=lstrcpy(pString1,pString2);<br>pString=lstrcpyn(pString1,pString2);<br>pString=lstrcat(pString1,pString2);<br>iComp=lstrcmp(pString1,pString2);<br>iComp=lstrcmpi(pString1,pString2);<br>以上与c运行库中函数功能对应，定义了UNICODE标识符后，接受宽字符，否则只接受常规字符串</p>
-<h3 id="在Windows中使用printf"><a href="#在Windows中使用printf" class="headerlink" title="在Windows中使用printf"></a>在Windows中使用printf</h3><p>sprintf函数定义：<br>int sprintf (char * szBuffer,const char * szFormat, ……);<br>第一个参数是字符缓冲区，第二个是格式字符串；该函数返回字符串的长度<br>Microsoft版的c语言运行库和Windows所支持的所有sprintf类函数</p>
-<img src="/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/sprintf%E7%B1%BB%E5%87%BD%E6%95%B0.png" class="">
-<h3 id="格式化的消息框"><a href="#格式化的消息框" class="headerlink" title="格式化的消息框"></a>格式化的消息框</h3><p>(兼容性问题导致课本代码无法运行)</p>
-<h1 id="窗口与消息"><a href="#窗口与消息" class="headerlink" title="窗口与消息"></a>窗口与消息</h1><h2 id="窗口的创建"><a href="#窗口的创建" class="headerlink" title="窗口的创建"></a>窗口的创建</h2><p>CreateWindow函数</p>
-<h3 id="系统结构概述"><a href="#系统结构概述" class="headerlink" title="系统结构概述"></a>系统结构概述</h3><p>窗口过程</p>
-<h3 id="HELLOWIN程序"><a href="#HELLOWIN程序" class="headerlink" title="HELLOWIN程序"></a>HELLOWIN程序</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;Windows.h&gt;</span><br><span class="line">#pragma comment(lib, &quot;winmm&quot;)</span><br><span class="line">LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);</span><br><span class="line"></span><br><span class="line">int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</span><br><span class="line">&#123;</span><br><span class="line">	static TCHAR szAppName[] &#x3D; TEXT(&quot;HelloWin&quot;);</span><br><span class="line">	HWND hwnd;</span><br><span class="line">	MSG msg;</span><br><span class="line">	WNDCLASS wndclass;</span><br><span class="line">	wndclass.style &#x3D; CS_HREDRAW | CS_VREDRAW;</span><br><span class="line">	wndclass.lpfnWndProc &#x3D; WndProc;</span><br><span class="line">	wndclass.cbClsExtra &#x3D; 0;</span><br><span class="line">	wndclass.cbWndExtra &#x3D; 0;</span><br><span class="line">	wndclass.hInstance &#x3D; hInstance;</span><br><span class="line">	wndclass.hIcon &#x3D; LoadIcon(NULL, IDI_APPLICATION);</span><br><span class="line">	wndclass.hCursor &#x3D; LoadCursor(NULL, IDC_ARROW);</span><br><span class="line">	wndclass.hbrBackground &#x3D; (HBRUSH)GetStockObject(WHITE_BRUSH);</span><br><span class="line">	wndclass.lpszMenuName &#x3D; NULL;</span><br><span class="line">	wndclass.lpszClassName &#x3D; szAppName;</span><br><span class="line"></span><br><span class="line">	if (!RegisterClass(&amp;wndclass)) &#123;</span><br><span class="line">		MessageBox(NULL, TEXT(&quot;This program requires windows NT!&quot;), szAppName, MB_ICONERROR);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	hwnd &#x3D; CreateWindow(szAppName,</span><br><span class="line">		TEXT(&quot;The Hello Program&quot;),</span><br><span class="line">		WS_OVERLAPPEDWINDOW,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		NULL,</span><br><span class="line">		NULL,</span><br><span class="line">		hInstance,</span><br><span class="line">		NULL);</span><br><span class="line"></span><br><span class="line">	ShowWindow(hwnd, iCmdShow);</span><br><span class="line">	UpdateWindow(hwnd);</span><br><span class="line"></span><br><span class="line">	while (GetMessage(&amp;msg, NULL, 0, 0))</span><br><span class="line">	&#123;</span><br><span class="line">		TranslateMessage(&amp;msg);</span><br><span class="line">		DispatchMessageW(&amp;msg);</span><br><span class="line">	&#125;</span><br><span class="line">	return msg.wParam;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	HDC hdc;</span><br><span class="line">	PAINTSTRUCT ps;</span><br><span class="line">	RECT rect;</span><br><span class="line"></span><br><span class="line">	switch (message)</span><br><span class="line">	&#123;</span><br><span class="line">	case WM_CREATE:</span><br><span class="line">		PlaySound(TEXT(&quot;hellowin.wav&quot;), NULL, SND_FILENAME | SND_ASYNC);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_PAINT:</span><br><span class="line">		hdc &#x3D; BeginPaint(hwnd, &amp;ps);</span><br><span class="line">		GetClientRect(hwnd, &amp;rect);</span><br><span class="line">		DrawText(hdc, TEXT(&quot;Hello, Windows 98!&quot;), -1, &amp;rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);</span><br><span class="line">		EndPaint(hwnd, &amp;ps);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_DESTROY:</span><br><span class="line">		PostQuitMessage(0);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return DefWindowProc(hwnd, message, wParam, lParam);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="通盘考虑"><a href="#通盘考虑" class="headerlink" title="通盘考虑"></a>通盘考虑</h3><h4 id="Windows函数调用-1"><a href="#Windows函数调用-1" class="headerlink" title="Windows函数调用"></a>Windows函数调用</h4><h4 id="大写标识符"><a href="#大写标识符" class="headerlink" title="大写标识符"></a>大写标识符</h4><p>在Windows头文件中定义的<br>很多以两个或三个字母作为前缀，其后紧跟一个下划线</p>
-<h4 id="新数据类型"><a href="#新数据类型" class="headerlink" title="新数据类型"></a>新数据类型</h4><h4 id="理解句柄"><a href="#理解句柄" class="headerlink" title="理解句柄"></a>理解句柄</h4><h4 id="匈牙利标记法"><a href="#匈牙利标记法" class="headerlink" title="匈牙利标记法"></a>匈牙利标记法</h4><p>前缀<code>sz</code>表示“以0结束的字符串”<br>前缀<code>h</code>表示“句柄”<br>前缀<code>i</code>表示“整型”<br>前缀<code>lpfn</code>表示“指向函数的长指针”<br>前缀<code>cb</code>表示“字节数”<br>前缀<code>hbr</code>表示“画刷的句柄”<br>前缀<code>lpsz</code>表示“指向以零结束的字符串的长指针”<br>前缀<code>IDI</code>表示“图标的标识符”<br>前缀<code>hbr</code>表示“画刷的句柄”</p>
-<h3 id="窗口类的注册"><a href="#窗口类的注册" class="headerlink" title="窗口类的注册"></a>窗口类的注册</h3><p>在创建应用程序窗口之前，必须调用函数<code>RegisterClass</code>来注册窗口类；该函数只需要一个参数，即一个指向WNDCLASS(HELLOWIN.C程序)类型的结构的指针；</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;Windows.h&gt;</span><br><span class="line">#pragma comment(lib, &quot;winmm&quot;)</span><br><span class="line">LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);</span><br><span class="line"></span><br><span class="line">int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)</span><br><span class="line">&#123;</span><br><span class="line">	static TCHAR szAppName[] &#x3D; TEXT(&quot;HelloWin&quot;);</span><br><span class="line">	HWND hwnd;</span><br><span class="line">	MSG msg;</span><br><span class="line">	WNDCLASS wndclass;   &#x2F;&#x2F;定义WNDCLASS类型的结构，10个字段</span><br><span class="line">	wndclass.style &#x3D; CS_HREDRAW | CS_VREDRAW;  &#x2F;&#x2F;32位“类风格”的标识符</span><br><span class="line">	wndclass.lpfnWndProc &#x3D; WndProc;  &#x2F;&#x2F;用于基于该窗口的窗口过程的地址；处理传递给所有基于该窗口类创建的窗口的所有消息。引用的实际上是指向函数的指针</span><br><span class="line">	wndclass.cbClsExtra &#x3D; 0;  &#x2F;&#x2F;应用程序根据需要来使用这些额外空间</span><br><span class="line">	wndclass.cbWndExtra &#x3D; 0;</span><br><span class="line">	wndclass.hInstance &#x3D; hInstance;  &#x2F;&#x2F;实例句柄</span><br><span class="line">	wndclass.hIcon &#x3D; LoadIcon(NULL, IDI_APPLICATION);  &#x2F;&#x2F;为所有基于该窗口类的窗口设定一个图标</span><br><span class="line">	&#x2F;&#x2F;为了获取预定义图标的句柄，需要调用函数LoadIcon，并将函数的第一个参数设置为NULL；而从保存在磁盘中的应用程序的可执行文件中加载自定义图标时，该参数必须设定为hInstance</span><br><span class="line">	&#x2F;&#x2F;第二个参数用于标识该图标</span><br><span class="line">	wndclass.hCursor &#x3D; LoadCursor(NULL, IDC_ARROW);&#x2F;&#x2F;载入一个预定义的鼠标指针(IDC_ARROW)，并返回指针的句柄</span><br><span class="line">	wndclass.hbrBackground &#x3D; (HBRUSH)GetStockObject(WHITE_BRUSH);&#x2F;&#x2F;这类窗口的客户区指定背景色</span><br><span class="line">	wndclass.lpszMenuName &#x3D; NULL;&#x2F;&#x2F;窗口类的菜单</span><br><span class="line">	wndclass.lpszClassName &#x3D; szAppName;  &#x2F;&#x2F;窗口类的名称，允许用户任意命名。只创建一个窗口时，窗口类的名称通常与程序名相同</span><br><span class="line"></span><br><span class="line">	if (!RegisterClass(&amp;wndclass)) &#123;  &#x2F;&#x2F;检测错误，如果定义了UNICODE标识符，程序调用RegisterClassW；Windows98下运行，RegisterClassW没有真正实现；</span><br><span class="line">		MessageBox(NULL, TEXT(&quot;This program requires windows NT!&quot;), szAppName, MB_ICONERROR);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	hwnd &#x3D; CreateWindow(szAppName,</span><br><span class="line">		TEXT(&quot;The Hello Program&quot;),</span><br><span class="line">		WS_OVERLAPPEDWINDOW,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		CW_USEDEFAULT,</span><br><span class="line">		NULL,</span><br><span class="line">		NULL,</span><br><span class="line">		hInstance,</span><br><span class="line">		NULL);</span><br><span class="line"></span><br><span class="line">	ShowWindow(hwnd, iCmdShow);</span><br><span class="line">	UpdateWindow(hwnd);</span><br><span class="line"></span><br><span class="line">	while (GetMessage(&amp;msg, NULL, 0, 0))</span><br><span class="line">	&#123;</span><br><span class="line">		TranslateMessage(&amp;msg);</span><br><span class="line">		DispatchMessageW(&amp;msg);</span><br><span class="line">	&#125;</span><br><span class="line">	return msg.wParam;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	HDC hdc;</span><br><span class="line">	PAINTSTRUCT ps;</span><br><span class="line">	RECT rect;</span><br><span class="line"></span><br><span class="line">	switch (message)</span><br><span class="line">	&#123;</span><br><span class="line">	case WM_CREATE:</span><br><span class="line">		PlaySound(TEXT(&quot;hellowin.wav&quot;), NULL, SND_FILENAME | SND_ASYNC);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_PAINT:</span><br><span class="line">		hdc &#x3D; BeginPaint(hwnd, &amp;ps);</span><br><span class="line">		GetClientRect(hwnd, &amp;rect);</span><br><span class="line">		DrawText(hdc, TEXT(&quot;Hello, Windows 98!&quot;), -1, &amp;rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);</span><br><span class="line">		EndPaint(hwnd, &amp;ps);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	case WM_DESTROY:</span><br><span class="line">		PostQuitMessage(0);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return DefWindowProc(hwnd, message, wParam, lParam);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="窗口的创建-1"><a href="#窗口的创建-1" class="headerlink" title="窗口的创建"></a>窗口的创建</h3><p>基于同一窗口类可以创建许多不同的窗口；<br>理解各个参数</p>
-<img src="/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/CreatWindow.png" class="">
-
-
-<h3 id="窗口的显示"><a href="#窗口的显示" class="headerlink" title="窗口的显示"></a>窗口的显示</h3><p>CreateWindow调用返回，窗口已在Windows内部被创建。Windows已经分配了一块内存来保存CreateWindow已经分配了一块内存来保存CreateWindow调用中指定的窗口信息以及其他一些信息<br>Windows可通过窗口句柄来获取这些信息。<br>将窗口显示在屏幕上，需要调用另外两个函数：<br> <code>ShowWindow(hwnd, iCmdShow);</code><br>第一个参数是指向有CreateWindow所创建的窗口句柄；<br>第二个参数是WindMain函数所接受的iCmdShow值；该参数决定着窗口在屏幕中的初始显示形式(正常、最小化、最大化)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WinMain传给ShowWindow的参数值：</span><br><span class="line">正常：SW_SHOWNORMAL（窗口的客户区将被窗口类中所指定的背景画刷擦除，&#96;UpadteWindow(hwnd)&#96;使窗口客户区重绘）</span><br><span class="line">最大化：SW_SHOWMAXIMIZED</span><br><span class="line">显示在任务栏：SW_SHOWMINNOACTIVE</span><br></pre></td></tr></table></figure>
-
-<h3 id="消息循环"><a href="#消息循环" class="headerlink" title="消息循环"></a>消息循环</h3><p>开启消息循环的GetMessage函数用于从消息队列中对消息进行检索<br><code>GetMessage(&amp;msg,NULL,0,0)</code><br>将一个指向名称为msg的MSG结构变量的指针传给Windows<br>第二三四个参数分别设置为NULL或0，表明该程序希望获取由该程序所创建的窗口消息</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hwnd：消息所指向的窗口句柄。</span><br><span class="line">message：消息标识符，用于标识消息的数字。对于每条消息，在Windows的头文件中都为其定义了一个已WM为前缀的标识符</span><br><span class="line">wParam：一个32位的“消息参数”，该参数的含义和取值决定于具体的信息</span><br><span class="line">lParam：一个32位的“消息参数”，该参数的含义和取值决定于具体的信息</span><br><span class="line">time：消息进入消息队列的时间</span><br><span class="line">pt：消息进入消息队列中时鼠标指针的位置坐标</span><br></pre></td></tr></table></figure>
-
-<h3 id="窗口过程"><a href="#窗口过程" class="headerlink" title="窗口过程"></a>窗口过程</h3><p>决定了窗口过程决定了窗口客户区的的显示内容以及窗口如何对用户的输入做出响应<br>窗口过程几乎由Windows自身调用</p>
-<h3 id="消息的处理"><a href="#消息的处理" class="headerlink" title="消息的处理"></a>消息的处理</h3><p>窗口过程所接受的每条消息都由一个数字来标识，即窗口过程的message参数<br>用DefWindowProc来对所有窗口过程没有处理的消息进行默认处理非常重要，否则其他的正常行为将无法进行</p>
-<h3 id="声音文件的播放"><a href="#声音文件的播放" class="headerlink" title="声音文件的播放"></a>声音文件的播放</h3><h3 id="WM-PAINT消息"><a href="#WM-PAINT消息" class="headerlink" title="WM_PAINT消息"></a>WM_PAINT消息</h3><p>当窗口的客户区的部分或全部“无效”且必须“更新”时，应用程序将得到此通知<br>对WM_PAINT消息的处理几乎总是从BeginPaint函数开始：<code>hdc=BeginPaint*hwnd,&amp;ps);</code>，以调用EndPaint函数结束：<code>EndPaint(hwnd,&amp;ps);</code><br>第一个参数均为程序的窗口句柄，第二个参数均指向一个类型为PAINTSTRUCT结构的指针</p>
-<h3 id="WM-DESTROY消息"><a href="#WM-DESTROY消息" class="headerlink" title="WM_DESTROY消息"></a>WM_DESTROY消息</h3><p>PostQuitMessage(0);</p>
-<h2 id="Windows编程中的若干难点"><a href="#Windows编程中的若干难点" class="headerlink" title="Windows编程中的若干难点"></a>Windows编程中的若干难点</h2><p>真正有价值的行为发生在窗口过程中</p>
-<h3 id="究竟是谁调用谁"><a href="#究竟是谁调用谁" class="headerlink" title="究竟是谁调用谁"></a>究竟是谁调用谁</h3><h3 id="队列消息和非队列消息"><a href="#队列消息和非队列消息" class="headerlink" title="队列消息和非队列消息"></a>队列消息和非队列消息</h3><p><strong>队列消息</strong>：由Windows放入程序的消息队列中的消息。(投递)。主要用用户的输入产生<br><strong>非队列消息</strong>：Windows对窗口过程的直接调用产生的。(发送)。包括队列消息以外的其他所有消息。通常由调用特定的Windows函数引起。</p>
-<h1 id="文本输出"><a href="#文本输出" class="headerlink" title="文本输出"></a>文本输出</h1><h2 id="绘制和重绘"><a href="#绘制和重绘" class="headerlink" title="绘制和重绘"></a>绘制和重绘</h2><h3 id="WM-PAINT消息-1"><a href="#WM-PAINT消息-1" class="headerlink" title="WM_PAINT消息"></a>WM_PAINT消息</h3><p>大多数Windows程序在WinMain函数初始化过程中会在进入消息循环之前调用UpdateWondow函数。<br>窗口过程收到一条WM_PAINT消息：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">用户移动一个窗口，导致原来被遮盖的部分窗口暴露出来；</span><br><span class="line">用户调整窗口的大小；</span><br><span class="line">程序调用ScrollWindow或ScrollDC函数滚动客户区；</span><br><span class="line">程序调用InvalidateRect或InvalidateRgn函数显示生成WM_PAINT消息</span><br></pre></td></tr></table></figure>
-<p>发送一条WM_PAINT消息：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">windows关闭了一个覆盖了部分窗口的对话框或消息框；</span><br><span class="line">下拉菜单被拉下然后被收回；</span><br><span class="line">显示提示信息</span><br></pre></td></tr></table></figure>
-<p>Windows保存被覆盖部分的显示内容，然后再恢复：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">鼠标在客户区内移动</span><br><span class="line">在客户区内拖动图标</span><br></pre></td></tr></table></figure>
-<p>程序保存所有用于绘制客户区的信息，但是只有在需要时才进行绘制–当收到WM_PAINT消息时。如果程序需要在其他时候更新客户区，可以强制Windows生成WM_PAINT消息。</p>
-<h3 id="有效矩形和无效矩形"><a href="#有效矩形和无效矩形" class="headerlink" title="有效矩形和无效矩形"></a>有效矩形和无效矩形</h3><p>窗口过程收到WM_PAINT消息时更新整个客户区，但通常只需要更新其中一个部分，最常见更新其中一个矩形区域。<br>需要重新绘制的部分被称作<code>无效区域</code>或<code>更新区域</code>。客户区中有一个无效区域将导致Windows在应用程序的消息低劣中放置一条WM_PAINT消息，只有程序客户区的一部分失效时，窗口过程才会接受到。</p>
-<h2 id="GDI简介"><a href="#GDI简介" class="headerlink" title="GDI简介"></a>GDI简介</h2><p>绘制一个窗口的客户区需要调用Windows的图形设备接口(GDI)函数。<br>最常用的字符输出函数TextOut：<code>TextOut (hdc, x, y, psText, iLength);</code>，向窗口客户区输出一个字符串。<code>psText</code>指向字符串的指针；<code>iLength</code>是字符串的长度；<code>x</code>、<code>y</code>定义了字符串在客户区中的开始位置；<code>hdc</code>是设备环境句柄。</p>
-<h3 id="设备环境"><a href="#设备环境" class="headerlink" title="设备环境"></a>设备环境</h3><p>句柄不过是一个数值，Windows内部用这个数值确定一个对象。<br>设备环境句柄是程序窗口使用GDI函数的“通行证”。<br><code>设备环境DC</code>是GDI内部维护的一个数据结构。与特定显示设备相关联。<br>程序在绘制前必须获得一个设备环境句柄。获取句柄之后，Windows会在内部的设备环境结构中填入默认的属性值。绘制完成之后必须释放设备环境句柄，释放之后这个句柄不再有效且不能再被使用，so获取释放应该在处理同一条消息的过程中。</p>
-<h3 id="获取设备环境句柄：方法一"><a href="#获取设备环境句柄：方法一" class="headerlink" title="获取设备环境句柄：方法一"></a>获取设备环境句柄：方法一</h3><p>可以在处理WM_PAINT消息时使用，牵涉到两个函数：<code>BeginPaint</code>和<code>EndPaint</code>，而这两个函数需要两个参数：窗口句柄和类型为PAINTSTRUCT结构的变量(ps)的地址。<br>窗口过程在处理WM_PAINT消息时必须成对的调用BeginPaint和EndPaint。如果窗口过程不处理WM_PAINT消息，WM_PAINT消息就会被传送给Windows默认的窗口过程DefWindowProc。</p>
-<h4 id="绘制信息结构"><a href="#绘制信息结构" class="headerlink" title="绘制信息结构"></a>绘制信息结构</h4><p><strong>PAINTSTRUCT</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef struct tagPAINTSTRUCT</span><br><span class="line">&#123;</span><br><span class="line">	HDC hdc;               &#x2F;&#x2F;设备环境句柄(BeginPaint函数的返回值)</span><br><span class="line">	BOOL fErase;           &#x2F;&#x2F;大多数情况设置为FALSE</span><br><span class="line">	RECT rcPaint;           &#x2F;&#x2F;定义无效矩形的边界，还是一个“裁剪”矩形</span><br><span class="line">	BOOL fRestore;</span><br><span class="line">	BYTE rgbReserved[32];</span><br><span class="line">&#125;PAINTSTRUCT;</span><br></pre></td></tr></table></figure>
-<h3 id="获取设备环境句柄：方法二"><a href="#获取设备环境句柄：方法二" class="headerlink" title="获取设备环境句柄：方法二"></a>获取设备环境句柄：方法二</h3><p>调用<code>GetDC</code>函数来获得窗口客户区的设备环境句柄，使用完以后调用ReleaseDC函数释放；</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hdc&#x3D;GetDC(hwnd);</span><br><span class="line">(使用GDI函数)</span><br><span class="line">ReleaseDC(hend,hdc);</span><br></pre></td></tr></table></figure>
-<p>通常用于处理键盘消息或者鼠标消息<br>从GetDC返回的设备环境句柄中的裁剪矩形是整个客户区。不会将无效区域有效化；<br><code>ValidateRect (hwnd,NULL);</code>将整个客户区有效化<br>GetWindowDC返回的是整个窗口的设备环境句柄；</p>
-<h3 id="TEXTOUT函数详解"><a href="#TEXTOUT函数详解" class="headerlink" title="TEXTOUT函数详解"></a>TEXTOUT函数详解</h3><p>语法：<code>TextOut (hdc, x, y, psText, iLength);</code><br><code>hdc</code>设备环境句柄，既可以是GetDC返回的hdc值，也可以是处理WM_PAINT消息时从BeginPaint返回的hdc值；<br><code>psText</code>指向字符串的指针；<br><code>iLength</code>是字符串的长度；如果psText指向一个Unicode字符串，则字符串占用字节数将是iLength的两倍；<br><code>x</code>、<code>y</code>定义了字符串在客户区中的开始位置；</p>
-<h3 id="系统字体"><a href="#系统字体" class="headerlink" title="系统字体"></a>系统字体</h3><h3 id="字符大小"><a href="#字符大小" class="headerlink" title="字符大小"></a>字符大小</h3><h3 id="文本尺寸的度量"><a href="#文本尺寸的度量" class="headerlink" title="文本尺寸的度量"></a>文本尺寸的度量</h3><h3 id="文本的格式化"><a href="#文本的格式化" class="headerlink" title="文本的格式化"></a>文本的格式化</h3>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="VS2019"><a href="#VS2019" class="headerlink" title="VS2019"></a>VS2019</h1><h2 id="无法解析的外部符号"><a href="#无法解析的外部符号" class="headerlink" title="无法解析的外部符号"></a>无法解析的外部符号</h2><p>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
@@ -578,34 +578,88 @@
 <p><code>外存储器（外存）</code>：主板外的存储器。<br>外存的信息必须调入内存后才能被CPU处理。</p>
 <img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%86%E7%BA%A7.png" class="">
 
+<p><code>高速缓冲存储器</code>：简称<code>cache</code>，高速存取指令和数据，存取速度快，单存储容量小<br><code>主存储器</code>：简称<code>主存</code>，存放计算机运行期间的大量程序和数据，存取速度较快，存储容量不大<br><code>外存储器</code>：简称<code>外存</code>，存放系统程序和大型数据文件及数据库，存储容量大，位成本低，速度慢，信息调入内存后才能被CPU处理</p>
+<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E5%AD%98%E5%82%A8%E5%99%A8%E5%AD%98%E5%8F%96%E6%97%B6%E9%97%B4.png" class="">
 
+<p><strong>内存与外存的关系及比较</strong></p>
+<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E5%86%85%E5%AD%98%E4%B8%8E%E5%A4%96%E5%AD%98%E5%85%B3%E7%B3%BB%E5%8F%8A%E6%AF%94%E8%BE%83.png" class="">
 
+<h3 id="主存储器的技术指标"><a href="#主存储器的技术指标" class="headerlink" title="主存储器的技术指标"></a>主存储器的技术指标</h3><p><code>存储容量</code>：所包含的存储单元的总数（单位：MB或GB）<br><code>存取时间（存储器访问时间）</code>：一次读操作命令发出到该操作完成，将数据读出到数据总线上所经历的时间，通常取写操作时间等于读操作时间<br><code>存储周期</code>：连续启动两次读操作所需间隔的最小时间，<code>略大于存取时间</code>。存储周期等于存取时间加上下一次存取开始前所要求的附加时间，因为存储器由于读出放大器、驱动电路等都有一段稳定恢复时间，所以读出后不能立即进行下一次访问<br><code>存储器带宽</code>：单位时间里存储器所存取的信息量，通常<code>B/s</code>作为度量单位，是衡量数据<code>传输速率</code>的重要技术指标</p>
+<h2 id="SRAM存储器"><a href="#SRAM存储器" class="headerlink" title="SRAM存储器"></a>SRAM存储器</h2><h3 id="基本的静态存储元阵列"><a href="#基本的静态存储元阵列" class="headerlink" title="基本的静态存储元阵列"></a>基本的静态存储元阵列</h3><p>SRAM基本存储元采用<code>触发器原理</code>，数据保存在一对<code>正负反馈门电路</code>中，<code>只要供电，数据就一直保持</code>。</p>
+<p><code>不是破环性读出</code>，信息读出后仍保持原状态，<code>不需要重写，即无需刷新</code>！</p>
+<p>电源掉电时，原存信息丢失，属于<code>易失性</code>半导体存储器。</p>
+<p>任何一个SRAM，都有三组信号线：</p>
+<ol>
+<li><code>地址线</code>：图中共有6条地址线A5～A0，决定了存储器的容量是26=64个存储单元。</li>
+<li><code>数据线</code>：图中共有4条数据线I/O3～I/O0，决定了存储器的字长是4位。</li>
+<li><code>控制线</code>：R/“W”  ̅指定了对存储器进行读（高电平）还是写（低电平）。<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E9%9D%99%E6%80%81%E5%AD%98%E5%82%A8%E5%85%83%E9%98%B5%E5%88%97.png" class="">
 
+</li>
+</ol>
+<h3 id="基本的SRAM逻辑结构"><a href="#基本的SRAM逻辑结构" class="headerlink" title="基本的SRAM逻辑结构"></a>基本的SRAM逻辑结构</h3><p>一个SRAM存储器由<code>存储体</code>、<code>读写电路</code>、<code>地址译码电路</code>和<code>控制电路</code>等组成</p>
+<p><code>存储体</code>：将基本的存储电路有规则地组织起来，就是存储体</p>
+<p>SRAM芯片采用二级译码：即双译码方式<br>将地址分成x向、y向两部分，第一级进行x向（行译码）和y向（列译码）的独立译码，然后在存储阵列中完成第二级的交叉译码。</p>
+<h3 id="存储器的读写周期"><a href="#存储器的读写周期" class="headerlink" title="存储器的读写周期"></a>存储器的读写周期</h3><p><code>读出时间</code>：从给出有效地址到外部数据总线上稳定地出现所读出的数据信息所经历的时间。t(AO)<br><code>读周期时间</code>：则是存储器进行两次连续读操作时所必须间隔的时间，它总是大于或等于读出时间。t(RC)&gt;=t(AO)</p>
+<p>t(WC)时间称为<code>写周期时间</code>。为了控制方便，一般取<code>读周期时间等于写周期时间</code>，通常称为<code>存储周期</code>（存取周期）</p>
+<h2 id="DRAM存储器"><a href="#DRAM存储器" class="headerlink" title="DRAM存储器"></a>DRAM存储器</h2><h3 id="DRAM存储元"><a href="#DRAM存储元" class="headerlink" title="DRAM存储元"></a>DRAM存储元</h3><p>靠<code>电容存储电荷的原理</code>存储信息，电容上的电荷一般只能维持1～2ms，因此即使电源不掉电，信息也会自动消失。<br>与SRAM相比<code>集成度更高</code>，<code>功耗更低</code>，<code>用于构建主存储器</code>。</p>
+<h3 id="DRAM芯片的逻辑结构"><a href="#DRAM芯片的逻辑结构" class="headerlink" title="DRAM芯片的逻辑结构"></a>DRAM芯片的逻辑结构</h3><img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/DRAM%E8%8A%AF%E7%89%87%E7%9A%84%E9%80%BB%E8%BE%91.png" class="">
+<p>两个电源脚，两个地线脚，一个空脚（NC）。<br>A0 ~ A10：地址输入线；<br><code>RAS非</code>：行地址选通信号线，兼起片选信号作用（整个读写周期， <code>RAS非</code> 一直处于有效状态）；<br><code>CAS非</code>：列地址选通信号线；<br>WE：写控制信号 ；<br>OE：读控制信号；<br>D1 ~ D4：数据输入/输出线。</p>
+<h3 id="DRAM读写周期、刷新周期"><a href="#DRAM读写周期、刷新周期" class="headerlink" title="DRAM读写周期、刷新周期"></a>DRAM读写周期、刷新周期</h3><ol>
+<li>读周期时序<br>地址总线上行地址有效 → 行选通信号(“RAS” ) ̅有效，行地址被打入行地址锁存器 → 地址总线上列地址有效 → 列选通信号(“CAS” ) ̅有效，列地址被打入列地址锁存器 → 读命令有效 → 数据输出</li>
+<li>写周期时序<br>地址总线上行地址有效 → 行选通信号(“RAS” ) ̅有效，行地址被打入行地址锁存器 → 地址总线上列地址有效 → 列选通信号(“CAS” ) ̅有效，列地址被打入列地址锁存器 → 写命令有效 → 数据总线上输入数据有效</li>
+</ol>
+<p><code>读周期</code>、<code>写周期</code>的定义是从行选通信号<code>RAS非</code> ̅下降沿开始，到下一个<code>RAS非</code>号的下降沿为止的时间，也就是连续两个读周期的时间间隔<br>3. 刷新周期<br>集中式刷新、分散式刷新</p>
+<h3 id="存储器容量的扩充"><a href="#存储器容量的扩充" class="headerlink" title="存储器容量的扩充"></a>存储器容量的扩充</h3><p>通常选用<code>ROM</code>芯片存放<code>系统程序</code>，选用<code>RAM</code>芯片存放<code>用户程序</code></p>
+<p>存储芯片容量可表示为：2^n×m位/片<br>2^n：存储芯片字数，需要n根地址总线<br>m位：存储芯片字长，需要m根数据总线</p>
+<p><strong>字和位扩展</strong><br>扩展时所需芯片数：d = “设计要求的存储器容量”/“已知芯片存储容量” </p>
+<h4 id="位扩展"><a href="#位扩展" class="headerlink" title="位扩展"></a>位扩展</h4><p>只加大字长，而存储器的字数与存储芯片字数一致，对芯片没有片选要求</p>
+<p>例1：用8k×1位的存储芯片组成8k×8位的存储器需<code>8片</code>芯片<br>地址总线 —— 需要 13 根<br>数据总线 —— 共需 8 根              </p>
+<h4 id="字扩展"><a href="#字扩展" class="headerlink" title="字扩展"></a>字扩展</h4><p>仅在字数方向扩展，而字长不变</p>
+<p>例2：用16Kx8位的存储芯片组成64Kx8位的存储器需<code>4片</code>芯片<br>地址总线 —— 共需16根<br>数据总线 —— 需要8根</p>
+<h4 id="字位扩展"><a href="#字位扩展" class="headerlink" title="字位扩展"></a>字位扩展</h4><p>在字数方向和字长方向上同时扩展。</p>
+<p>例3：用1Kx4位的存储芯片组成4Kx8位的存储器需<code>8片</code>芯片<br>地址总线 —— 共需12根<br>数据总线 —— 共需8根</p>
+<p><strong>总结</strong><br>DRAM和SRAM的比较<br>优点：</p>
+<ol>
+<li>在同样大小的芯片中，DRAM的集成度远高于SRAM</li>
+<li>DRAM行、列地址分时传送，减少了芯片引脚，封装尺寸也减少</li>
+<li>DRAM的价格比SRAM便宜</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>由于使用动态元件（电容），速度比SRAM慢。</li>
+<li>DRAM需要再生，故需配置再生电路，也需要消耗一部分的功率</li>
+</ol>
+<p>容量不大的<code>高速缓冲存储器</code>大多用SRAM实现</p>
+<h2 id="只读存储器和闪速存储器"><a href="#只读存储器和闪速存储器" class="headerlink" title="只读存储器和闪速存储器"></a>只读存储器和闪速存储器</h2><h3 id="只读存储器"><a href="#只读存储器" class="headerlink" title="只读存储器"></a>只读存储器</h3><img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8.png" class="">
 
+<h3 id="闪速存储器"><a href="#闪速存储器" class="headerlink" title="闪速存储器"></a>闪速存储器</h3><h4 id="闪速存储器-1"><a href="#闪速存储器-1" class="headerlink" title="闪速存储器"></a>闪速存储器</h4><p>又称：快擦型存储器<br>新型的、具有性价比更好、可靠性更高的可擦除非易失性存储器</p>
+<p>既有EPROM价格便宜、集成度高的优点，又有EEPROM电可擦除重写的特性，能够整片擦除</p>
+<p>闪速存储器是一种高密度、非易失性的读/写存储器，它突破了传统的存储器体系，改善了现有存储器的特性</p>
+<p>特点：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">是E2PROM的演进，本质上还是属于E2PROM；</span><br><span class="line">廉价的高密度——具有巨大比特数目的存储容量；</span><br><span class="line">属于非易失性存储器，适合长期保存信息；</span><br><span class="line">能快速擦写，写入前必须先擦除，因此写比读要慢；</span><br><span class="line">存储器访问周期短、功耗低；</span><br><span class="line">现在常用的SSD固态硬盘是由Flash芯片组成的</span><br></pre></td></tr></table></figure>
+<h4 id="固态硬盘-SSD"><a href="#固态硬盘-SSD" class="headerlink" title="固态硬盘(SSD)"></a>固态硬盘(SSD)</h4><p>又称：电子硬盘<br>使用闪存组成的外部存储系统，与U盘并没有本质差别，只是容量更大，存取性能更好</p>
+<p>用闪存颗粒代替了磁盘作为存储介质，利用闪存的特点，以区块写入和抹除的方式进行数据的读取和写入</p>
+<p>特点：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">写操作比读操作慢得多</span><br><span class="line">电信号的控制使得固态硬盘的内部传输速率远远高于常规硬盘</span><br><span class="line">其接口规范和定义、功能及使用方法与传统硬盘完全相同，在产品外形和尺寸上也与普通硬盘一致。目前接口标准上使用USB、SATA和IDE，因此SSD是通过标准磁盘接口与I&#x2F;O总线互连的</span><br><span class="line">在SSD中有一个闪存翻译层，它将来自CPU的逻辑磁盘块读写请求翻译成对底层SSD物理设备的读写控制信号。因此，这个闪存翻译层相当于磁盘控制器。</span><br><span class="line">闪存的擦写次数有限，所以频繁擦写会降低其写入使用寿命</span><br></pre></td></tr></table></figure>
 
+<h4 id="各种存储器性能比较"><a href="#各种存储器性能比较" class="headerlink" title="各种存储器性能比较"></a>各种存储器性能比较</h4><img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E5%90%84%E7%A7%8D%E5%AD%98%E5%82%A8%E5%99%A8%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83.png" class="">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2 id="并行存储器"><a href="#并行存储器" class="headerlink" title="并行存储器"></a>并行存储器</h2><p>采取一些加速CPU和存储器之间有效传输的特殊措施：<br><code>芯片技术</code>：研究开发高性能芯片<br><code>结构技术</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">采用空间并行操作方式　　　            ——双端口存储器　</span><br><span class="line">提高时间读出并行性                            ——多模块交叉存储器</span><br><span class="line">牺牲硬件来缩短主存储器的读出时间   ——相联存储器</span><br></pre></td></tr></table></figure>
+<h3 id="双端口存储器"><a href="#双端口存储器" class="headerlink" title="双端口存储器"></a>双端口存储器</h3><p>同一个存储器具有<code>两组相互独立的读写控制线路</code>，是一种高速工作的存储器。</p>
+<p>当两个端口的地址不相同时，在两个端口上进行读写操作，一定不会发生冲突。<br>当两个端口同时存取存储器同一存储单元时，便发生读写冲突。<br>为解决读写冲突问题，设置<code>BUSY非</code>标志</p>
+<h3 id="多模块交叉存储器"><a href="#多模块交叉存储器" class="headerlink" title="多模块交叉存储器"></a>多模块交叉存储器</h3><p>大存储器在一个存储周期中读出的不是一个存储单元的w位信息，而是n个字，这样在单位时间里存储器提供的信息量可提高n倍，这样组织的主存系统称为<code>并行主存系统</code></p>
+<h4 id="存储器的模块化组织"><a href="#存储器的模块化组织" class="headerlink" title="存储器的模块化组织"></a>存储器的模块化组织</h4><p>一个由若干个模块组成的主存储器是线性编址的。这些地址在各模块中有两种安排方式：<code>顺序方式</code>、<code>交叉方式</code></p>
+<p><strong>顺序方式</strong><br>各模块一个接一个串行工作。某个模块进行存取时，其他模块不工作。<br>优点：<br>某一模块出现故障时，其他模块可以照常工作<br>通过增添模块来扩充存储器容量比较方便</p>
+<p>缺点：<br>各模块串行工作，存储器的带宽受到了限制</p>
+<p><strong>交叉方式</strong><br>连续地址分布在相邻的不同模块内。同一个模块内的地址都是不连续的。<br>对连续字的成块传送可实现多模块流水式并行存取，大大提高存储器的带宽</p>
+<h4 id="多模块交叉存储器的基本结构"><a href="#多模块交叉存储器的基本结构" class="headerlink" title="多模块交叉存储器的基本结构"></a>多模块交叉存储器的基本结构</h4><h3 id="相联存储器"><a href="#相联存储器" class="headerlink" title="相联存储器"></a>相联存储器</h3><h4 id="相联存储器的基本原理"><a href="#相联存储器的基本原理" class="headerlink" title="相联存储器的基本原理"></a>相联存储器的基本原理</h4><p>相联存储器不是按地址访问的存储器，而是按内容寻址的存储器。</p>
+<p>相联存储器是指其中任一存储项内容作为地址来存取的存储器</p>
+<p>选用来寻址存储器的子段叫做<code>关键字</code>，简称<code>“键”</code></p>
+<p>相联存储器的基本原理是把存储单元所存内容的某一部分作为检索项（即关键字项），去检索该存储器，并将存储器中与该检索项符合的存储单元内容进行读出或写入</p>
+<p>格式：<br><code>KEY，DATA</code><br>KEY是地址，DATA是被读写信息</p>
+<h4 id="相联存储器举例"><a href="#相联存储器举例" class="headerlink" title="相联存储器举例"></a>相联存储器举例</h4><p><code>SRR为查找结果寄存器</code></p>
+<p>在计算机系统中，相联存储器主要用于虚拟存储器中存放分段表、页表和快表；在高速缓冲存储器中，相联存储器作为存放cache的行地址之用</p>
 ]]></content>
       <categories>
         <category>硬件</category>
