@@ -81,6 +81,30 @@
       </tags>
   </entry>
   <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+<hr>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
+<hr>
+<p>除初始化外，不允许使用花括号的形式赋值</p>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>千峰网络安全</title>
     <url>/2020/06/10/%E5%8D%83%E5%B3%B0%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</url>
     <content><![CDATA[<p>千峰网络安全入门笔记，持续更新ing…</p>
@@ -238,30 +262,6 @@
       </categories>
       <tags>
         <tag>安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-<hr>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
-<hr>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
-<hr>
-<p>除初始化外，不允许使用花括号的形式赋值</p>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
@@ -742,10 +742,50 @@
 <ol>
 <li>全相联映射<br>主存中的任何一个块均可以映射装入到Cache中任何一个块的位置上，比较灵活，Cache的块冲突概率最低、空间利用率最高，但是地址变换速度慢，成本高，实现困难。</li>
 <li>直接映射<br>主存中的每一个块只能被放置到Cache中唯一的一个指定位置，若这个位置已有内容，则产生块冲突，原来的块被无条件替换出去。<br>直接映射是最简单的地址映射方式，成本低，易实现，地址变换速度块，但该方法不够灵活，Cache的块冲突概率最高、空间利用率最低。<br>cache的第i块和主存的第j块有如下函数关系<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; j mod m ( m为cache的总块数）</span><br><span class="line">i &#x3D; 0,1,2,…,m-1          </span><br><span class="line">j &#x3D; 0,1,2,…,n-1</span><br></pre></td></tr></table></figure></li>
-<li>组相联映射<br>是全相联映射和直接映射的折中方案，其优点和缺点介于全相联和直接映射方式之间。<br>主存中的各块与cache的组号有固定的映射关系，但可以自由映射到对应的cache组中的任一块</li>
+<li>组相联映射<br>是全相联映射和直接映射的折中方案，其优点和缺点介于全相联和直接映射方式之间。<br>主存中的各块与cache的组号有固定的映射关系，但可以自由映射到对应的cache组中的任一块<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">把cache字块分为u组，每组v块，则cache的总块数为：m&#x3D;u*v</span><br><span class="line">若j为主存块号，i为cache块号，q为组号，q&#x3D;0,1,2,…,u-1</span><br><span class="line">按u为模将其映射到cache，那么，主存字块可以用下列映射函数映射到cache的第u组内：q &#x3D; j  mod  u</span><br><span class="line">凡是符合以上求模公式的主存j块，均会映射到cache的u组内</span><br><span class="line">主存块存放到哪个组是固定的，至于存到该组的那一行是灵活的</span><br><span class="line">v值越大越灵活，而v值越小相联搜索的规模越小，v通常取2、4、8、16，称为v路组相联cache</span><br></pre></td></tr></table></figure>
+cache和主存机械等分为<code>相同大小的块</code>，每一块是由若干个字（或字节）组成。 </li>
 </ol>
-<p>cache和主存机械等分为<code>相同大小的块</code>，每一块是由若干个字（或字节）组成。 </p>
-]]></content>
+<h4 id="替换策略"><a href="#替换策略" class="headerlink" title="替换策略"></a>替换策略</h4><p>当一个新的主存块要调入到cache，而允许存放此块的行位置都被其它主存块占满时，就要产生替换，因为<code>cache工作原理要求它尽量保存最新的数据</code></p>
+<p><code>替换问题与cache的组织方式紧密相关：</code></p>
+<ol>
+<li>对于采用直接映射的cache来说，因一个主存块只有一个特定的行位置可存放，所以问题解决很简单，把此特定行位置上的原主存块妥善处理后，换出cache即可。</li>
+<li>对于全相联映射的cache来说，它的全部行都是可被替换的特定行。</li>
+<li>而组相联映射的cache中同组各路的行都是可被替换的特定行，这样就要从允许存放新主存块的若干特定行中选取一行换出。</li>
+</ol>
+<p><strong>LFU（最不经常使用 ）算法</strong><br><code>将一段时间内被访问次数最少的那行数据换出</code><br>每行设置一个计数器，新行建立后从0开始计数<br>每访问一次，被访问的行计数器增加1<br>当需要替换时，对这些特定行的计数值进行比较，将计数值最小的行换出，同时将这些行的计数器清零<br><code>缺点</code>：不能反映近期cache的访问情况</p>
+<p><strong>LRU（近期最少使用）算法</strong><br><code>将近期内长久未被访问过的行换出</code><br>每行设置一个计数器，cache每命中一次，命中行计数器清零，其它各行计数器增1。该计数器是未访问次数计数器。当需要替换时，比较各特定行的计数值，<code>将计数值最大的行换出</code></p>
+<p>这种算法<code>保护了刚拷贝到cache中的新数据行</code>，符合cache工作原理，因而使cache有较高的命中率。</p>
+<p><strong>随机替换</strong><br>从特定的行位置中随机地选取一行换出即可。<br>硬件实现最容易，而且速度也比前两种策略快</p>
+<p><code>缺点</code>：随意换出的数据很可能马上又要用，从而增加了映射次数，降低了命中率和cache 的工作效率<br>这个缺点可以用增大cache的容量来克服。</p>
+<h4 id="写操作策略"><a href="#写操作策略" class="headerlink" title="写操作策略"></a>写操作策略</h4><p><strong>写回法（Write Back）</strong><br>当CPU对cache写命中时，只修改cache的内容，不立即写入主存，<code>只当此行被换出时才写回主存</code><br>对一个cache行的多次写命中都在cache中快速完成修改，只是需被替换时才写回速度较慢的主存，减少了访问主存的次数从而提高了效率。</p>
+<p>方法：<code>每个cache行必须配置一个修改位（通常称为“脏”位）</code>，以反映此行是否被CPU修改过。<br>当某行被换出时，根据此行修改位为1还是为0，决定是将该行内容写回主存还是简单弃去<br>对于<code>cache写未命中</code>，为包含欲写字的主存块在cache分配一行，将此块整个拷贝到cache后在cache中对其进行修改；拷贝主存块时虽已访问到主存，但此时并不对主存块修改，统一地将主存写修改操作留待换出时进行</p>
+<p><code>优点</code>：写cache与写主存分开进行，可显著减少写主存次数。<br><code>缺点</code>：存在cache/主存不一致性的隐患</p>
+<p><strong>全写法（写直通法Write Through）</strong><br><code>当cache写命中时</code>：cache与主存同时发生写修改。这种策略显然较好地维护了cache与主存的内容一致性<br><code>当cache写未命中时</code>：直接向主存写，但此时是否将修改过的主存块取到cache，有两种选择：</p>
+<ol>
+<li>一种是取主存块到cache并为它分配一个行位置；</li>
+<li>另一种是不取主存块到cache。</li>
+</ol>
+<p><code>优点</code>：cache每行无需设置一个修改位以及相应的判测逻辑。<br><code>缺点</code>：cache对CPU向主存的写操作无高速缓存功能，降低了cache的功效</p>
+<p><strong>写一次法</strong><br>一种基于写回法又结合了全写法的写策略，即写命中和写未命中的处理与写回法基本相同，只是<code>第一次写命中时要同时写入主存</code><br>在第一次片内cache写命中时， CPU在总线上启动一个存储器写周期。其他cache监听到此主存块地址及写信号后，即可把它们各自保存可能有的该块拷贝及时作废（无效处理），<code>便于维护系统全部cache的一致性</code></p>
+<h3 id="Pentium-4的cache组织"><a href="#Pentium-4的cache组织" class="headerlink" title="Pentium 4的cache组织"></a>Pentium 4的cache组织</h3><h4 id="Pentium-PC采用两级cache结构"><a href="#Pentium-PC采用两级cache结构" class="headerlink" title="Pentium PC采用两级cache结构"></a>Pentium PC采用两级cache结构</h4>
+<p><code>L1cache</code> —— 集成在CPU内，其容量是16KB，采用的也是两路组相联映射方式，每行是32字节<br>CPU中的L1cache分为各8KB的指令cache和数据cache</p>
+<ol>
+<li>指令cache是只读的，单端口256位（32字节）向指令预取缓冲器提供指令代码。</li>
+<li>数据cache是读写的，双端口，每端口32位（4字节），向两条流水线的整数运算单元和寄存器提供数据或接收数据，两个端口还可组合成一个64位端口与浮点运算单元相接</li>
+<li>两个cache与64位数据、32位地址的CPU内部总线相连<br><code>L2cache</code> —— 安装在主板上，其容量是256 KB或512KB，采用的两路组相联映射方式，每行可以是32，64或128字节。<br>L2的内容是4～32MB容量主存的子集，L1又是L2的子集，从而使L1未命中处理时间大为缩短，为L1的高速使用提供了支持</li>
+</ol>
+<h4 id="Pentium4的三级cache组织"><a href="#Pentium4的三级cache组织" class="headerlink" title="Pentium4的三级cache组织"></a>Pentium4的三级cache组织</h4><ol>
+<li>取指/译码单元：顺序从L2 cache中取程序指令，将它们译成一系列的微指令，并存入L1指令cache中。</li>
+<li>乱序执行逻辑：依据数据相关性和资源可用性，调度微指令的执行，因此微指令可按不同于所取机器指令流的顺序被调度执行</li>
+<li>执行单元：执行微指令，从L1数据cache中取所需数据，并在寄存器组中暂存运算结果。</li>
+<li>存储器子系统：这部分包括L2 cache、L3 cache和系统总线。当L1、L2cache未命中时，使用系统总线访问主存。系统总线还用于访问I/O资源。<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/Pentium4%E7%9A%84%E4%B8%89%E7%BA%A7cache%E7%BB%84%E7%BB%87.png" class="">
+Pentium 4的指令cache位于指令译码逻辑和执行部件之间。<br><code>设计理念</code>：Pentium 4将机器指令译成由微指令组成的简单RISC类指令，而使用简单定长的微指令可允许采用超标量流水线和调度技术，从而增强机器的性能。</li>
+</ol>
+<h4 id="Intel-Core-i7处理器的cache结构"><a href="#Intel-Core-i7处理器的cache结构" class="headerlink" title="Intel Core i7处理器的cache结构"></a>Intel Core i7处理器的cache结构</h4>
+<p>每个核内有各自私有的L1cache和L2cache<br>其中，L1数据cache和指令cache都是32KB数据区，皆为8路组相联，存取时间都是4个时钟周期。<br>L2cache是联合cache，共有256KB数据区，8路组相联，存取时间是11个时钟周期。<br>该多核处理器还有一个供所有核共享的L3cache，其数据区大小为8MB，16路组相联，存取时间是30~40个时钟周期。<br>Intel Core i7中所有cache的块大小都是64B。</p>
+<h2 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h2><p>一个用户的程序不再分配连续的内存空间，而是把<code>物理存储器分成多个比较小的存储块，每块的大小相等且长度固定不变</code>，称为<code>页面</code>或<code>页框</code>。<br><code>每个进程所需的存储空间被划分成小的固定长度的程序块</code>，称为<code>页</code>。<br><code>页</code>的长度和<code>页面</code>相等</p>
+<p>分页技术引申出一种非常重要的存储管理策略——<code>虚拟存储器</code>（简称虚存）。<br>在<code>存储管理部件（MMU）</code>的支持下，虚拟存储器技术可以彻底解决存储器的调度与管理问题。</p>
+<h3 id="虚拟存储器的基本概念"><a href="#虚拟存储器的基本概念" class="headerlink" title="虚拟存储器的基本概念"></a>虚拟存储器的基本概念</h3>]]></content>
       <categories>
         <category>硬件</category>
       </categories>
