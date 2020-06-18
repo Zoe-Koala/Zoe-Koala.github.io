@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+<hr>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
+<hr>
+<p>除初始化外，不允许使用花括号的形式赋值</p>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows程序设计</title>
     <url>/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<p>《Windows程序设计》学习，漫长的过程，加油冲冲冲！~</p>
@@ -78,30 +102,6 @@
       </categories>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-<hr>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
-<hr>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
-<hr>
-<p>除初始化外，不允许使用花括号的形式赋值</p>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
@@ -1077,6 +1077,78 @@ Pentium 4的指令cache位于指令译码逻辑和执行部件之间。<br><code
 <li><code>CISC的兼容性</code><br>当前，计算机公司生产的<code>各种CISC都能够实现软件兼容</code>，新型号或高档机包含了旧型号或低档机的全部指令并加以扩充。因此，用户的目标码程序可以不加修改直接在新机器上运行。</li>
 <li><code>RISC的兼容性</code><br>RISC机则将指令做了简化，数量减少，格式也不同，与老机器不能兼容。因为大多数用户的程序是用高级语言编写的，重新在RISC上编译一次即可运行。<br>有的公司仍然考虑到目标码兼容的问题，例如HP公司开发的目标码翻译器与浮点数转换软件等，可使目标码程序在采用RISC技术的精密体系计算机中运行。    </li>
 </ol>
+<h1 id="中央处理器"><a href="#中央处理器" class="headerlink" title="中央处理器"></a>中央处理器</h1><h2 id="CPU的功能和组成"><a href="#CPU的功能和组成" class="headerlink" title="CPU的功能和组成"></a>CPU的功能和组成</h2><h3 id="CPU的功能"><a href="#CPU的功能" class="headerlink" title="CPU的功能"></a>CPU的功能</h3><p><code>指令控制</code>：即<code>程序的顺序控制</code>，程序中指令的相互顺序不能任意颠倒。<br><code>操作控制</code>：<code>一条指令有若干操作信号实现</code>，CPU管理并产生由内存取出的每条指令的操作信号，把各种操作信号送往相应的部件，从而控制这些部件按指令的要求进行动作。<br><code>时间控制</code>：<code>对指令的各种操作实施时间的定时</code>，各种指令的操作信号均受到时间的严格定时，一条指令的整个执行过程也受到时间的严格定时<br><code>数据加工</code>：<code>对数据进行算术运算和逻辑运算处理</code></p>
+<h3 id="CPU的基本组成"><a href="#CPU的基本组成" class="headerlink" title="CPU的基本组成"></a>CPU的基本组成</h3><p>运算器、控制器、cache</p>
+<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/CPU%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90.png" class="">
+<h4 id="控制器-1"><a href="#控制器-1" class="headerlink" title="控制器"></a>控制器</h4><p>由<code>程序计数器</code>、<code>指令寄存器</code>、<code>指令译码器</code>、<code>时序产生器</code>和<code>操作控制器</code>组成，完成协调和指挥整个计算机系统的操作<br>主要功能：</p>
+<ol>
+<li>从指令cache中取出一条指令，并指出下一条指令在指令cache中的位置。</li>
+<li>对指令进行译码或测试，并产生相应的操作控制信号，以便启动规定的动作。</li>
+<li>指挥并控制CPU、数据cache和输入/输出设备之间数据流动的方向。</li>
+</ol>
+<h4 id="运算器-1"><a href="#运算器-1" class="headerlink" title="运算器"></a>运算器</h4><p>由<code>算术逻辑单元ALU</code>、<code>通用寄存器</code>、<code>数据缓冲寄存器DR</code>和<code>状态条件寄存器PSW</code>组成，是数据加工处理部件。</p>
+<p>所有操作由控制器发出的控制信号来指挥，是<code>执行部件</code>。</p>
+<p>运算器的两个功能：</p>
+<ol>
+<li>执行所有的算术运算；</li>
+<li>执行所有的逻辑运算，并进行逻辑测试，如零值测试或两个值的比较。</li>
+</ol>
+<p>通常，一个算术运算产生一个运算结果，而一个逻辑运算则产生一个判决。</p>
+<h3 id="CPU中的主要存储器"><a href="#CPU中的主要存储器" class="headerlink" title="CPU中的主要存储器"></a>CPU中的主要存储器</h3><p>CPU中至少包含六类寄存器：</p>
+<ol>
+<li>指令寄存器IR</li>
+<li>程序计数器PC</li>
+<li>数据地址寄存器AR —— 如果不考虑CPU中的cache，需要直接访问存储器，则为存储器地址寄存器MAR</li>
+<li>数据缓冲寄存器DR —— 如果不考虑CPU中的cache，需要直接访问存储器，则为存储器数据寄存器MDR</li>
+<li>通用寄存器组</li>
+<li>状态字寄存器PSW</li>
+</ol>
+<h4 id="指令寄存器IR"><a href="#指令寄存器IR" class="headerlink" title="指令寄存器IR"></a>指令寄存器IR</h4><ol>
+<li>保存当前正在执行的一条指令。当执行一条指令时，先将它从<code>指令cache</code>（指存）读出，传送至IR。</li>
+<li>IR中指令操作码字段经过<code>指令译码器</code>译码，向操作控制器发出具体操作的特定信号。</li>
+<li>在执行该指令的过程中，<code>IR的内容不允许发生变化</code>，以保证实现指令的全部功能。</li>
+</ol>
+<h4 id="程序计数器PC"><a href="#程序计数器PC" class="headerlink" title="程序计数器PC"></a>程序计数器PC</h4><p>又称为<code>指令计数器</code></p>
+<ol>
+<li>程序开始执行前，将<code>起始地址（程序的第一条指令所在的地址）送入PC</code></li>
+<li>执行指令时，CPU自动修改PC的内容，使PC中总是存放<code>将要执行的下一条指令的地址</code>（指令顺序执行，PC+1）</li>
+<li>执行转移指令时，后继指令地址由转qwqw=移指令来规定，因此<code>PC具有寄存器和计数两种功能</code></li>
+</ol>
+<h4 id="数据地址寄存器AR"><a href="#数据地址寄存器AR" class="headerlink" title="数据地址寄存器AR"></a>数据地址寄存器AR</h4><p>保存当前CPU所访问的<code>数据cache</code>（数存）单元的地址</p>
+<h4 id="数据缓冲寄存器DR"><a href="#数据缓冲寄存器DR" class="headerlink" title="数据缓冲寄存器DR"></a>数据缓冲寄存器DR</h4><ol>
+<li>暂存<code>ALU的运算结果</code>，作为ALU运算结果和通用寄存器之间信息传送中时间上的缓冲</li>
+<li>暂存<code>数据存储器读出的一个数据字或来自外部接口的一个数据字</code>，补偿CPU和内存、外围设备之间在操作速度上的差别</li>
+</ol>
+<h4 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h4><ol>
+<li>ALU执行算术或逻辑运算时，为ALU提供一个工作区。</li>
+<li>通用寄存器组中的寄存器既可以存放源操作数，又可以存放结果操作数，因此在指令格式中要对寄存器号加以编址。</li>
+<li>通用寄存器还可以用作地址指示器、变址寄存器、堆栈指示器等。</li>
+</ol>
+<h4 id="状态字寄存器PSW"><a href="#状态字寄存器PSW" class="headerlink" title="状态字寄存器PSW"></a>状态字寄存器PSW</h4><p>是一个由<code>各种状态条件标志拼凑而成</code>的寄存器。</p>
+<ol>
+<li>保存由<code>算术指令和逻辑指令运算或测试结果建立的各种条件信息</code>，如运算结果进位标志、运算结果溢出标志等。</li>
+<li>保存<code>中断和系统工作状态</code>，以便使CPU和系统能及时了解机器运行状态和程序运行状态</li>
+</ol>
+<h3 id="操作控制器与时序产生器"><a href="#操作控制器与时序产生器" class="headerlink" title="操作控制器与时序产生器"></a>操作控制器与时序产生器</h3><p>寄存器之间传送信息的通路，称为<code>数据通路</code></p>
+<p><code>在各寄存器之间建立数据通路的任务</code>，是由<code>操作控制器</code>来完成的</p>
+<p><code>操作控制器</code>的功能：根据指令操作码和时序信号，产生各种操作控制信号，以便正确地选择数据通路，把有关数据打入到一个寄存器，从而完成取指令和执行指令的控制</p>
+<p><code>操作控制器</code>可以分成两种：</p>
+<ol>
+<li><strong>硬布线控制器</strong>——采用<code>时序逻辑技术</code>实现</li>
+<li><strong>微程序控制器</strong>——采用<code>存储逻辑</code>实现</li>
+</ol>
+<p><code>操作控制器</code>产生的控制信号必须定时，因此必须有<code>时序产生器</code>。<code>时序产生器</code>的<code>作用</code>：对各种操作信号实施时间上的控制。<br>CPU中其他功能部件：中断系统、总线接口等</p>
+<h4 id="硬布线控制器的特点"><a href="#硬布线控制器的特点" class="headerlink" title="硬布线控制器的特点"></a>硬布线控制器的特点</h4><p><code>优点</code>：速度快，可用于速度要求较高的机器中。<br><code>缺点</code>：</p>
+<ol>
+<li>缺乏规整性</li>
+<li>缺乏灵活性</li>
+</ol>
+<h4 id="微程序控制器的特点"><a href="#微程序控制器的特点" class="headerlink" title="微程序控制器的特点"></a>微程序控制器的特点</h4><p>其<code>实质</code>是<code>用程序设计的思想方法来组织操作控制逻辑</code><br>把指令执行所需要的所有控制信号存放在<code>控制存储器</code>中，需要时从这个存储器中读取，存储逻辑可以修改<code>控制存储器</code>中存放的数据，从而修改逻辑功能，速度略慢，有一个寻址和读数据的过程</p>
+<p><code>优点</code>：规整性、灵活性、可维护性好<br><code>缺点</code>：速度慢</p>
+<h2 id="指令周期"><a href="#指令周期" class="headerlink" title="指令周期"></a>指令周期</h2><h3 id="指令周期的基本概念"><a href="#指令周期的基本概念" class="headerlink" title="指令周期的基本概念"></a>指令周期的基本概念</h3><p><code>指令周期</code>：取指令、分析指令到执行完该指令所需的全部时间。<br>各种指令的操作功能不同，因此<code>各种指令的指令周期</code>不尽相同。<br><code>指令周期</code>可以划分为若干个<code>机器周期</code>，每个机器周期完成一个基本操作，又称<code>CPU周期</code>，<code>由一个或多个时钟周期构成</code><br><code>时钟周期</code>：一般指<code>CPU时钟周期</code>，通常定义为计算机主频的倒数，是计算机中最基本的时间单位。</p>
+<p>通常<code>用主存中读取一个指令字的最短时间</code>来规定<code>CPU周期</code>。不同的指令，可能包含<code>不同数目</code>的CPU周期</p>
+<p>在一个<code>CPU周期</code>中，包含若干个相等的时间段，即<code>T周期</code>（称为<code>节拍脉冲</code>，是<code>处理操作的最基本时间单位</code>）<br>节拍常用具有一定宽度的电位信号表示，称之为节拍电位<br>节拍的宽度<code>取决于</code>CPU完成一次基本的微操作的时间</p>
+<p>每个机器周期（CPU周期）包含的节拍数可以相等，也可以不等，分别称为<code>定长机器周期</code>（CPU周期）和<code>不定长机器周期</code>（CPU周期）</p>
 ]]></content>
       <categories>
         <category>硬件</category>
