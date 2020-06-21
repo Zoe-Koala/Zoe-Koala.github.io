@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-<hr>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
-<hr>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
-<hr>
-<p>除初始化外，不允许使用花括号的形式赋值</p>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows程序设计</title>
     <url>/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<p>《Windows程序设计》学习，漫长的过程，加油冲冲冲！~</p>
@@ -102,6 +78,30 @@
       </categories>
       <tags>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+<hr>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
+<hr>
+<p>除初始化外，不允许使用花括号的形式赋值</p>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
@@ -1147,8 +1147,112 @@ Pentium 4的指令cache位于指令译码逻辑和执行部件之间。<br><code
 <p><code>优点</code>：规整性、灵活性、可维护性好<br><code>缺点</code>：速度慢</p>
 <h2 id="指令周期"><a href="#指令周期" class="headerlink" title="指令周期"></a>指令周期</h2><h3 id="指令周期的基本概念"><a href="#指令周期的基本概念" class="headerlink" title="指令周期的基本概念"></a>指令周期的基本概念</h3><p><code>指令周期</code>：取指令、分析指令到执行完该指令所需的全部时间。<br>各种指令的操作功能不同，因此<code>各种指令的指令周期</code>不尽相同。<br><code>指令周期</code>可以划分为若干个<code>机器周期</code>，每个机器周期完成一个基本操作，又称<code>CPU周期</code>，<code>由一个或多个时钟周期构成</code><br><code>时钟周期</code>：一般指<code>CPU时钟周期</code>，通常定义为计算机主频的倒数，是计算机中最基本的时间单位。</p>
 <p>通常<code>用主存中读取一个指令字的最短时间</code>来规定<code>CPU周期</code>。不同的指令，可能包含<code>不同数目</code>的CPU周期</p>
-<p>在一个<code>CPU周期</code>中，包含若干个相等的时间段，即<code>T周期</code>（称为<code>节拍脉冲</code>，是<code>处理操作的最基本时间单位</code>）<br>节拍常用具有一定宽度的电位信号表示，称之为节拍电位<br>节拍的宽度<code>取决于</code>CPU完成一次基本的微操作的时间</p>
+<p>在一个<code>CPU周期</code>中，包含若干个相等的时间段，即<code>T周期</code>（称为<code>节拍脉冲</code>，是<code>处理操作的最基本时间单位</code>）<br>节拍常用具有一定宽度的电位信号表示，称之为<code>节拍电位</code><br>节拍的宽度<code>取决于</code>CPU完成一次基本的微操作的时间</p>
 <p>每个机器周期（CPU周期）包含的节拍数可以相等，也可以不等，分别称为<code>定长机器周期</code>（CPU周期）和<code>不定长机器周期</code>（CPU周期）</p>
+<p><code>取指周期</code>：</p>
+<ol>
+<li>从指存取出指令；</li>
+<li>PC+1，为取下一条指令做准备；</li>
+<li>对指令操作码进行译码或测试，以便确定进行什么操作。</li>
+</ol>
+<p><code>执行周期</code>：根据对指令操作码的译码或测试，进行指令所要求的操作</p>
+<h3 id="MOV指令的指令周期"><a href="#MOV指令的指令周期" class="headerlink" title="MOV指令的指令周期"></a>MOV指令的指令周期</h3><img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/MOV%E6%8C%87%E4%BB%A4%E7%9A%84%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F.png" class="">
+<p>MOV指令是RR型指令，需要两个CPU周期——取指和执行</p>
+<h4 id="取指周期"><a href="#取指周期" class="headerlink" title="取指周期"></a>取指周期</h4><p>假定程序已经装入指存</p>
+<ol>
+<li>程序计数器PC中装入第一条指令地址***</li>
+<li>PC的内容被放到指存地址总线ABUS(I)上，对指存进行译码，并启动读命令</li>
+<li>从<strong>****</strong>号地址读出的MOV指令通过指令总线IBUS装入指令寄存器IR</li>
+<li>PC+1，变成***+1，为取下一条指令做好准备</li>
+<li>IR中的操作码（OP）被译码</li>
+<li>操作控制器OC识别出是MOV指令，至此，取指周期结束</li>
+</ol>
+<p>在执行周期，操作控制器OC将产生相应操作命令</p>
+<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F.png" class="">
+
+<h4 id="执行周期"><a href="#执行周期" class="headerlink" title="执行周期"></a>执行周期</h4><ol>
+<li>操作控制器OC送出控制信号到通用寄存器，选择R1（内容为10）作源寄存器，选择R0作目标寄存器；</li>
+<li>OC送出控制信号到ALU，指定ALU做传送操作；</li>
+<li>OC送出控制信号，打开ALU输出三态门。将R1寄存器作为ALU输出送到数据总线DBUS上</li>
+</ol>
+<p><strong>注意：任意时刻DBUS上只能有一个数据！</strong><br>4. OC送出控制信号，将DBUS上的数据打入数据缓冲寄存器DR（10）；<br>5. OC送出控制信号，将DR中的数据10打入目标寄存器R0，R0的内容由00变成10</p>
+<h3 id="LAD指令的指令周期"><a href="#LAD指令的指令周期" class="headerlink" title="LAD指令的指令周期"></a>LAD指令的指令周期</h3><p>LAD指令是RS型指令，先从指存中取出指令，然后从数存6号单元取出数据100装入通用寄存器R1，原来R1中存放的数据10被更换成100</p>
+<p>由于一次访问指存，一次访问数存，因此LAD指令的指令周期需要3个CPU周期</p>
+<ol>
+<li>取值周期<br>CPU的动作完全与MOV指令取指周期相同，只是PC提供的指令地址102，按此地址从指存中读出“LAD  R1，6”指令放入IR中，然后PC+1，使PC内容变为103，为取下一条ADD指令做好准备</li>
+<li>执行周期<br>操作控制器OC发出控制命令打开IR输出三态门。将指令中的直接地址码6放到数据总线DBUS上<br>OC发出操作命令，将地址码6装入数据地址寄存器AR；<br>OC发出读命令，将数存6号单元中的数100读出到DBUS上<br>OC发出命令，将DBUS上的数据100装入数据缓冲寄存器DR；<br>OC发出命令，将DR中的数100装入通用寄存器R1，覆盖掉R1中原来的数10。至此，LAD指令执行周期结束</li>
+</ol>
+<p><strong>注意：数据总线DBUS上分时进行了地址传送和数据传送，所以需要2个CPU周期</strong></p>
+<h3 id="ADD指令的指令周期"><a href="#ADD指令的指令周期" class="headerlink" title="ADD指令的指令周期"></a>ADD指令的指令周期</h3><p>ADD指令是RR型指令，在运算器中用两个寄存器R1和R2的数据进行加法运算，需要两个CPU周期——取指和执行</p>
+<ol>
+<li>取指周期<br>CPU的动作同MOV、LAD指令。PC提供的指令地址103，按此地址从指存中读出“ADD  R1，R2”指令放入IR中，然后PC+1，使PC内容变为104，为取下一条STO指令做好准备</li>
+<li>执行周期<br>操作控制器OC送出控制命令到通用寄存器，选择R1做源寄存器，R2做目标寄存器；<br>OC送出控制命令到ALU，指定ALU做R1和R2的加法运算<br>OC送出控制命令，打开ALU三态门，运算结果120放到DBUS上<br>OC送出控制命令，将DBUS上的数据打入数据缓冲寄存器DR；将ALU产生的进位信号保存在状态字寄存器PSW中；<br>OC送出控制命令，将DR（120）装入R2，R2中原来的内容20被冲掉。至此，ADD指令执行周期结束</li>
+</ol>
+<h3 id="STO指令的指令周期"><a href="#STO指令的指令周期" class="headerlink" title="STO指令的指令周期"></a>STO指令的指令周期</h3><p>STO指令是RS型指令，先访问指存取出STO指令，然后按（R3）=30地址访问数存，将（R2）=120写入30号单元。</p>
+<p>由于一次访问指存，一次访问数存，因此需要3个CPU周期</p>
+<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/STO%E6%8C%87%E4%BB%A4%E7%9A%84%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F.png" class="">
+<ol>
+<li>取指周期：同MOV、LAD、ADD</li>
+<li>执行周期<br>操作控制器OC送出控制命令到通用寄存器，选择（R3）=30做数据存储器的访问地址<br>OC发出操作命令，打开通用寄存器输出三态门（不经ALU以节省时间），将地址30放到DBUS上；<br>OC发出操作命令，将地址30打入AR，并进行数存地址译码<br>OC发出操作命令到通用寄存器，选择（R2）=120，作为数存的写入数据；<br>OC发出操作命令，打开通用寄存器输出三态门，将数据120放到DBUS上<br>OC发出操作命令，将数据120写入数存30号单元，30号单元中原先的数据40被覆盖。至此，STO指令执行周期结束</li>
+</ol>
+<p><strong>DBUS是单总线结构，先送地址（30），后送数据（120），必须分时传送。因此，执行周期需要两个CPU周期</strong></p>
+<h3 id="JMP指令的指令周期"><a href="#JMP指令的指令周期" class="headerlink" title="JMP指令的指令周期"></a>JMP指令的指令周期</h3><p>JMP指令是一条无条件转移指令，用来改变程序的执行顺序。指令周期为两个CPU周期。</p>
+<ol>
+<li>取指周期<br>同MOV、LAD、ADD、STO。</li>
+<li>执行周期<br>操作控制器OC送出控制命令，打开指令寄存器IR的输出三态门；将IR中的地址码101发送到DBUS上<br>OC送出控制命令，将DBUS上的地址码101打入程序计数器PC中，PC中原先的内容106被更换<br>下一条指令不是从指存106号单元取出，而是转移到101号单元取出。JMP指令执行周期结束</li>
+</ol>
+<h3 id="用方框图语言表示指令周期"><a href="#用方框图语言表示指令周期" class="headerlink" title="用方框图语言表示指令周期"></a>用方框图语言表示指令周期</h3><p><code>方框</code>：一个方框代表一个CPU周期<br><code>方框中的内容</code>：表示数据通路操作或某种控制操作<br><code>菱形符号</code>：某种判别或测试，时间上依附于紧接它的前面一个方框的CPU周期，<code>而不单独占用一个CPU周期</code><br><code>～</code>：表示一条指令已经执行完毕，转入<code>公操作</code>【<code>公操作</code>，就是一条指令执行完毕后，CPU所开始进行的一些操作，这些操作<code>主要是CPU对外围设备请求的处理</code>，如中断处理、通道处理等。<br>】<br>如果外围设备没有向CPU请求交换数据，那么CPU转向指存取下一条指令。</p>
+<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%94%A8%E6%96%B9%E6%A1%86%E5%9B%BE%E8%AF%AD%E8%A8%80%E8%A1%A8%E7%A4%BA%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F.png" class="">
+<p><code>所有指令的取指周期是完全相同的</code>，指令的执行周期，由于各条指令的功能不同，所用的CPU周期各不相同<br>DBUS代表数据总线，ABUS（D）代表数存地址总线，ABUS（I）代表指存地址总线，RD（D）代表数存读命令，WE（D）代表数存写命令，RD（I）代表指存读命令。</p>
+<h2 id="时序产生器和控制方式"><a href="#时序产生器和控制方式" class="headerlink" title="时序产生器和控制方式"></a>时序产生器和控制方式</h2><h3 id="时序信号的作用和体制"><a href="#时序信号的作用和体制" class="headerlink" title="时序信号的作用和体制"></a>时序信号的作用和体制</h3><p>从<code>时间</code>上来说，<code>取指令事件发生在指令周期的第一个CPU周期中，即发生在“取指令”阶段，而取数据事件发生在“执行指令”阶段</code></p>
+<p><code>硬布线控制器</code>：主状态周期—节拍电位—节拍脉冲三级体制<br><code>微程序控制器</code>：节拍电位—节拍脉冲二级体制<br>主状态周期：可以用一个触发器的状态持续时间来表示；<br>节拍电位：一个CPU周期。</p>
+<h3 id="时序信号产生器"><a href="#时序信号产生器" class="headerlink" title="时序信号产生器"></a>时序信号产生器</h3><p>时序信号发生器由<code>时钟源</code>、<code>环形脉冲发生器</code>、<code>节拍脉冲读写时序译码逻辑</code>、<code>启停控制逻辑</code>等组成</p>
+<h4 id="时钟源"><a href="#时钟源" class="headerlink" title="时钟源"></a>时钟源</h4><p>用来为环形脉冲发生器<code>提供频率稳定且电平匹配的方波时钟脉冲信号</code>。通常由石英晶体振荡器和与非门组成的正反馈振荡电路组成，其输出送至环形脉冲发生器。</p>
+<h4 id="环形脉冲发生器"><a href="#环形脉冲发生器" class="headerlink" title="环形脉冲发生器"></a>环形脉冲发生器</h4><p><code>产生一组有序的间隔相等或不等的脉冲序列</code>，以便通过译码电路来产生最后所需的节拍脉冲</p>
+<h4 id="节拍脉冲和存储器读-写时序"><a href="#节拍脉冲和存储器读-写时序" class="headerlink" title="节拍脉冲和存储器读/写时序"></a>节拍脉冲和存储器读/写时序</h4><h4 id="启停控制逻辑"><a href="#启停控制逻辑" class="headerlink" title="启停控制逻辑"></a>启停控制逻辑</h4><p>机器一旦接通电源，就会自动产生原始的节拍脉冲信号T1° ~ T4°，然而，只有在启动机器运行的情况下，才允许时序发生器发出CPU工作所需的节拍脉冲T1 ~ T4，对读/写时序信号也需要由启停逻辑加以控制。<br>启动、停机是随机的，使用触发器可以实现启停逻辑。<br><code>当计算机启动时，一定要从第1个节拍脉冲前沿开始工作，停机时一定要在第4个节拍脉冲结束后关闭时序产生器</code></p>
+<h3 id="控制方式"><a href="#控制方式" class="headerlink" title="控制方式"></a>控制方式</h3><p>控制不同操作序列时序信号的方法，称为控制器的<strong>控制方式</strong>，可以分为：<code>同步控制方式</code>、<code>异步控制方式</code>、<code>联合控制方式</code><br>其实质反映了时序信号的定时方式</p>
+<h4 id="同步控制方式"><a href="#同步控制方式" class="headerlink" title="同步控制方式"></a>同步控制方式</h4><p>指令在执行时所需的机器周期数和时钟周期数是固定不变的</p>
+<p>根据不同的情况，选取的方案如下：</p>
+<ol>
+<li><code>采用完全统一的机器周期</code>执行各种不同的指令。因此<code>所有指令周期具有相同的节拍电位数和节拍脉冲数。</code><br>对于简单指令和简单的操作来说，造成时间浪费</li>
+<li><code>采用不定长机器周期。</code><br>将大部分操作安排在一个较短的机器周期内完成，对某些时间紧张的操作，则采取延长机器周期的办法来解决</li>
+<li><code>中央控制和局部控制结合</code>。<br>将大部分指令安排在固定的机器周期完成，称为中央控制；对少数复杂指令（乘、除、浮点运算）采用另外的时序进行定时，称为局部控制</li>
+</ol>
+<h4 id="异步控制方式"><a href="#异步控制方式" class="headerlink" title="异步控制方式"></a>异步控制方式</h4><p>无统一的时序信号<br><code>特点：</code></p>
+<ol>
+<li>每条指令、每个操作控制信号需要多少时间就占用多少时间，因此每条指令的指令周期可由多少不等的机器周期数组成；</li>
+<li>当控制器发出某一操作控制信号后，等待执行部件完成操作后发回“回答”信号，再开始新的操作。</li>
+</ol>
+<p><code>优点</code>：运行速度快<br><code>缺点</code>：控制电路比较复杂</p>
+<h4 id="联合控制方式"><a href="#联合控制方式" class="headerlink" title="联合控制方式"></a>联合控制方式</h4><p>将同步控制方式与异步控制方式结合使用</p>
+<ol>
+<li>大部分操作序列安排在固定的机器周期中，对某些时间难以确定的操作则以执行部件的“回答”信号作为本次操作的结束。</li>
+<li>另一种情况，机器周期的节拍脉冲数固定，但是各条指令所包含的机器周期数不固定。如：<code>微程序控制器采用联合控制方式</code></li>
+</ol>
+<p><code>优点</code>：能保证一定的运行速度<br><code>缺点</code>：电路设计相对复杂  </p>
+<h2 id="微程序控制原理"><a href="#微程序控制原理" class="headerlink" title="微程序控制原理"></a>微程序控制原理</h2><h3 id="微命令和微操作"><a href="#微命令和微操作" class="headerlink" title="微命令和微操作"></a>微命令和微操作</h3><p><code>微命令</code>：控制部件通过控制线向执行部件发出的各种控制命令，是<code>构成控制序列的最小单位</code><br>微命令是控制计算机各部件完成某个基本微操作的命令</p>
+<p><code>微操作</code>：执行部件接受微命令后所进行的操作<br>微命令和微操作是一一对应的<br>微命令是微操作的控制信号，微操作是微命令的操作过程<br>微操作是执行部件中最基本的操作</p>
+<p><code>状态测试</code>：执行部件通过反馈线向控制部件反映操作情况，以便使控制部件根据执行部件的“状态”来下达新的微命令</p>
+<p>由于数据通路的结构关系，微操作可分为<code>相容性</code>和<code>相斥性</code>两种。</p>
+<ol>
+<li><code>相容性微操作</code>：能够同时或在同一个CPU周期内并行执行的微操作。</li>
+<li><code>相斥性微操作</code>：是指不能同时或不能在同一个CPU周期内并行执行的微操作。</li>
+</ol>
+<h3 id="微指令和微程序"><a href="#微指令和微程序" class="headerlink" title="微指令和微程序"></a>微指令和微程序</h3><p><code>微指令</code>：机器的一个CPU周期中，一组实现一定操作功能的微命令的组合<br>是微命令的组合，<code>存储在控制器中的控制存储器中</code>；</p>
+<p>一条<code>微指令</code>至少包含两部分信息： </p>
+<ol>
+<li><code>操作控制字段</code>，又称<code>微操作码字段</code>，用以<code>产生某一步操作所需的各个微操作控制信号。</code> </li>
+<li><code>顺序控制字段</code>，又称<code>微地址码字段</code>，用以<code>控制产生下一条要执行的微指令地址。</code></li>
+</ol>
+<p><code>微地址</code> ：存放微指令的控制存储器的单元地址。</p>
+<p><code>微程序</code>：一系列微指令的有序集合，一段微程序对应一条机器指令</p>
+<h3 id="微程序控制器原理框图"><a href="#微程序控制器原理框图" class="headerlink" title="微程序控制器原理框图"></a>微程序控制器原理框图</h3><p>微程序控制器主要由<code>控制存储器</code>、<code>微指令寄存器</code>和<code>地址转移逻辑</code>三大部分组成.其中微指令寄存器分为<code>微地址寄存器</code>和<code>微命令寄存器</code></p>
+
+<h4 id="控制存储器"><a href="#控制存储器" class="headerlink" title="控制存储器"></a>控制存储器</h4><p>是微程序控制器的<code>核心部件</code>，用来存放实现全部指令系统的微程序，是一种<code>只读型存储器</code>。其性能（包括容量、速度、可靠性等）与计算机的性能密切相关。</p>
+<p>控制存储器的工作周期就是<code>微指令周期</code>，即读出一条微指令并执行微指令的时间总和</p>
+<p>控制存储器的字长就是微指令字的长度，其存储容量视机器指令系统而定，即取决于微程序的数量。<br><code>对控制存储器的要求</code>：速度快，读出周期短。</p>
+<h4 id="微指令寄存器"><a href="#微指令寄存器" class="headerlink" title="微指令寄存器"></a>微指令寄存器</h4><p>用来存放从控制存储器取出的正在执行的微指令，其位数同微指令字长相等，分为<code>微地址寄存器</code>（uMAR）和<code>微命令寄存器</code>。<br><code>微地址寄存器</code>决定将要访问的下一条微指令的地址。<br><code>微命令寄存器</code>保存一条微指令的操作控制字段和判别测试字段的信息。</p>
+<h4 id="地址转移逻辑"><a href="#地址转移逻辑" class="headerlink" title="地址转移逻辑"></a>地址转移逻辑</h4><p>为下一步从控制存储器中读取微指令作准备。<br><code>微程序顺序执行时</code>，下一条微指令的地址直接由微地址寄存器给出。<br><code>微程序出现分支时</code>，通过判别<code>测试字段P</code>和<code>执行部件的“状态条件”反馈信息</code>，修改<code>微地址寄存器</code>的内容，并按改好的内容去读下一条微指令。</p>
 ]]></content>
       <categories>
         <category>硬件</category>
