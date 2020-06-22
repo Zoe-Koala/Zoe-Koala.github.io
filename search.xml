@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+<hr>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
+<hr>
+<p>除初始化外，不允许使用花括号的形式赋值</p>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows程序设计</title>
     <url>/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<p>《Windows程序设计》学习，漫长的过程，加油冲冲冲！~</p>
@@ -78,30 +102,6 @@
       </categories>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-<hr>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
-<hr>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
-<hr>
-<p>除初始化外，不允许使用花括号的形式赋值</p>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
@@ -255,7 +255,42 @@
 </ol>
 <p><strong>本地管理员组：administrators</strong><br><strong>域管理员组：Domain Admins</strong></p>
 <h2 id="OU：组织单位"><a href="#OU：组织单位" class="headerlink" title="OU：组织单位"></a>OU：组织单位</h2><p>作用：用于归类域资源（域用户、域计算机、域。。。）</p>
-<h2 id="组策略：Group-Policy-GPO"><a href="#组策略：Group-Policy-GPO" class="headerlink" title="组策略：Group Policy=GPO"></a>组策略：Group Policy=GPO</h2><p>作用：通过组策略可以修改计算机的各种属性，如开始桌面、桌面背景、网络参数等。<br><strong>重点</strong><br>组策略在域中，是基于OU发下来的！！！<br>组策略在域中下发后，用户的应用顺序是：LSDOU<br>在应用过程中，如果出现冲突，后应用的生效<br>组策略的组织继承及强制1<br><strong>正常情况下：LSDOU顺序</strong><br>上级OU： 桌面：aa 运行：删除<br>下级OU： 桌面：未配置  运行：不删除<br>下级OU用户结果：桌面：aa 运行：不删除</p>
+<h2 id="组策略：Group-Policy-GPO"><a href="#组策略：Group-Policy-GPO" class="headerlink" title="组策略：Group Policy=GPO"></a>组策略：Group Policy=GPO</h2><p>作用：通过组策略可以修改计算机的各种属性，如开始桌面、桌面背景、网络参数等。<br><strong>重点</strong><br>组策略在域中，是基于OU发下来的！！！<br>组策略在域中下发后，用户的应用顺序是：LSDOU<br>在应用过程中，如果出现冲突，后应用的生效<br>组策略的组织继承及强制1</p>
+<p><strong>正常情况下：LSDOU顺序</strong><br>上级OU： 桌面：aa 运行：删除<br>下级OU： 桌面：未配置  运行：不删除<br>下级OU用户结果：桌面：aa 运行：不删除</p>
+<p><strong>下级OU设置了阻止继承</strong><br>上级OU：桌面：aa  运行：删除<br>桌面OU：桌面：未配置   运行：不删除<br>下级OU的用户结果： 桌面：未配置  运行：不删除</p>
+<p><strong>上级设置了强制</strong><br>上级OU：桌面：aa  运行：删除<br>下级OU：桌面：未配置   运行：不删除<br>下级OU的用户结果： 桌面：aa  运行：删除</p>
+<p><em>注意：当上级强制和下级阻值继承同时设置，强制生效！</em></p>
+<h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><p>域的特点：集中管理<br>活动目录的特点：集中管理</p>
+<p>域Domain<br>域控制器Domain Controller=DC<br>活动目录Active Directory=AD</p>
+<p>在域中，组策略的应用顺序是：LSDOU</p>
+<h1 id="PKI"><a href="#PKI" class="headerlink" title="PKI"></a>PKI</h1><h2 id="PKI概述"><a href="#PKI概述" class="headerlink" title="PKI概述"></a>PKI概述</h2><p><code>名称</code>：Public Key Infrastructure 公钥基础设施<br><code>作用</code>：通过加密技术和数字签名保证信息的安全<br><code>组成</code>：公钥加密技术、数字证书、CA、RA</p>
+<h2 id="信息安全三要素"><a href="#信息安全三要素" class="headerlink" title="信息安全三要素"></a>信息安全三要素</h2><ol>
+<li><code>机密性</code></li>
+<li><code>完整性</code></li>
+<li><code>身份验证/操作的不可否认性</code></li>
+</ol>
+<h2 id="哪些IT领域用到PKI"><a href="#哪些IT领域用到PKI" class="headerlink" title="哪些IT领域用到PKI"></a>哪些IT领域用到PKI</h2><ol>
+<li>SSL/HTTPS</li>
+<li>IPsecVPN</li>
+<li>部分远程访问VPN</li>
+</ol>
+<h2 id="公钥加密技术"><a href="#公钥加密技术" class="headerlink" title="公钥加密技术"></a>公钥加密技术</h2><p><code>作用</code>：实现对<code>信息加密</code>、<code>数字签名</code>等安全保障<br><strong>加密算法</strong>：</p>
+<ol>
+<li>对称加密算法<br>加解密的密钥一致！<br>例：DES、3DES、AES</li>
+<li>非对称加密算法<br>通信双方各自产生一对公私钥<br>双方各自交换公钥<br>公钥和私钥互相加解密关系<br>公私钥不可互相推逆<br>例：RSA、DH</li>
+</ol>
+<p><code>x+5=y(对称加密算法)</code>，x是原数据/原文，y是密文，5是key/密钥</p>
+<p>HASH算法：MD5、SHA(验证完整性)<br>HASH值可逆吗？不可逆！<br>HASH值=摘要</p>
+<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><p>用自己的私钥对摘要加密得出的密文就是数字签名</p>
+<h2 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h2><p>证书用于保证密钥的合法性<br>证书格式遵循X.509标准<br>数字证书包含信息：</p>
+<ol>
+<li>使用者的公钥值</li>
+<li>使用者标识信息(如名称和电子邮件地址)</li>
+<li>有效期(证书的有效时间)</li>
+<li>颁发者标识信息</li>
+<li>颁发者的数字签名</li>
+</ol>
+<p>数字证书由权威公正的第三方机构即CA签发</p>
 ]]></content>
       <categories>
         <category>安全</category>
@@ -1253,6 +1288,19 @@ Pentium 4的指令cache位于指令译码逻辑和执行部件之间。<br><code
 <p>控制存储器的字长就是微指令字的长度，其存储容量视机器指令系统而定，即取决于微程序的数量。<br><code>对控制存储器的要求</code>：速度快，读出周期短。</p>
 <h4 id="微指令寄存器"><a href="#微指令寄存器" class="headerlink" title="微指令寄存器"></a>微指令寄存器</h4><p>用来存放从控制存储器取出的正在执行的微指令，其位数同微指令字长相等，分为<code>微地址寄存器</code>（uMAR）和<code>微命令寄存器</code>。<br><code>微地址寄存器</code>决定将要访问的下一条微指令的地址。<br><code>微命令寄存器</code>保存一条微指令的操作控制字段和判别测试字段的信息。</p>
 <h4 id="地址转移逻辑"><a href="#地址转移逻辑" class="headerlink" title="地址转移逻辑"></a>地址转移逻辑</h4><p>为下一步从控制存储器中读取微指令作准备。<br><code>微程序顺序执行时</code>，下一条微指令的地址直接由微地址寄存器给出。<br><code>微程序出现分支时</code>，通过判别<code>测试字段P</code>和<code>执行部件的“状态条件”反馈信息</code>，修改<code>微地址寄存器</code>的内容，并按改好的内容去读下一条微指令。</p>
+<p><strong>微程序控制器的工作过程</strong></p>
+<ol>
+<li>执行取指令的公共操作<br>取指令的公共操作通常由<code>一段取指微程序来完成</code>，<code>在机器开始运行时，自动将取指微程序的入口微地址送</code>uMAR，并从uCM中读出相应的微指令送入uIR。<br>微指令的操作控制字段产生相关微命令，来控制实现取机器指令的公共操作。<br>取指微程序的入口地址一般为CM的0号单元，当取指微程序执行完后，从主存中取出的机器指令就已存入IR中了。</li>
+<li>由<code>机器指令的操作码字段通过微地址形成部件产生出该机器指令所对应的微程序的入口地址</code>，并送入MAR。</li>
+<li>从uCM中逐条取出对应的微指令并执行，每条微指令都能自动产生下一条微指令的地址。 </li>
+<li>一条机器指令对应的微程序的最后一条微指令执行完毕后，其下一条微指令地址又回到取指微程序的<code>入口地址</code>，从而继续第1）步，以完成取下条机器指令的公共操作。</li>
+</ol>
+<p><em>以上是一条机器指令的执行过程，如此周而复始，直到整个程序的所有机器指令执行完毕</em></p>
+<h3 id="CPU周期与微指令周期的关系"><a href="#CPU周期与微指令周期的关系" class="headerlink" title="CPU周期与微指令周期的关系"></a>CPU周期与微指令周期的关系</h3><p>在串行方式的微程序控制器中，<code>微指令周期</code>等于读出微指令的时间加上执行该微指令的时间<br>为了保证整个机器控制信号的同步，设定一个微指令周期等于CPU周期</p>
+<img src="/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/CPU%E5%91%A8%E6%9C%9F%E4%B8%8E%E5%BE%AE%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F%E7%9A%84%E5%85%B3%E7%B3%BB.png" class="">
+<p>一个CPU周期为0.8us，包含四个等间隔的节拍脉冲T1～T4，则每个脉冲宽度为200ns。用T4作为读取微指令的时间，用T1+T2+T3作为执行微指令的时间</p>
+<h3 id="机器指令与微指令的关系"><a href="#机器指令与微指令的关系" class="headerlink" title="机器指令与微指令的关系"></a>机器指令与微指令的关系</h3><p>一条机器指令对应一个微程序，一条机器指令所完成的操作划分成若干条微指令来完成，由微指令进行解释和执行。</p>
+<p>从指令与微指令，程序与微程序，地址与微地址的一一对应关系来看，前者和主存储器有关，后者与控制存储器有关。</p>
 ]]></content>
       <categories>
         <category>硬件</category>
