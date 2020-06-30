@@ -331,26 +331,36 @@
 <li>信号：(模拟信号、数字信号) = 电信号<br>放大器、中继器<br>光信号：<br>光纤类型：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">单模光纤:一般黄色</span><br><span class="line">多模光纤:一般橙色&#x2F;蓝色</span><br></pre></td></tr></table></figure></li>
 <li>网线/双绞线<br>5类双绞线<br>超5类<br>6类 7类<br>T568A:白绿、绿、白橙、蓝、白蓝、橙、白棕、棕<br>T568B:白橙、橙、白绿、蓝、白蓝、绿、白棕、棕<br>网线的用途分类：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">交叉线：一端为A，一端为B，同种设备间使用！</span><br><span class="line">直通线：两端都是A或都是B，异种设备间使用！</span><br><span class="line">全反线：一端为A，另一端为反A，也称console线</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </li>
 </ol>
+<h2 id="PT软件"><a href="#PT软件" class="headerlink" title="PT软件"></a>PT软件</h2><p>Ethernet 10Mb/s<br>FastEthernet 100Mb/s<br>GigabitEthernet 1000Mb/s<br>TenGigabitEthernet 10000Mb/s</p>
+<p>f1/4<br>g0/3<br>0：模块号<br>3：接口号</p>
+<h2 id="数据链路层-2层-Data-Link-Layer"><a href="#数据链路层-2层-Data-Link-Layer" class="headerlink" title="数据链路层(2层 Data Link Layer)"></a>数据链路层(2层 Data Link Layer)</h2><h3 id="属于2层"><a href="#属于2层" class="headerlink" title="属于2层"></a>属于2层</h3><h3 id="传输单元：帧"><a href="#传输单元：帧" class="headerlink" title="传输单元：帧"></a>传输单元：帧</h3><h3 id="帧结构："><a href="#帧结构：" class="headerlink" title="帧结构："></a>帧结构：</h3><p>类型字段的作用：识别上层协议，为上层提供服务</p>
+<img src="/2020/06/10/%E5%8D%83%E5%B3%B0%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%B8%A7%E7%BB%93%E6%9E%84.png" class="">
+<p>MAC地址：也叫物理地址，是全球唯一的！长度：48位、6字节<br>帧头：6+6+2=14字节(目标MAC6字节、源MAC6字节、类型2字节)<br>帧尾：4字节<br>最长的帧：1518字节<br>MTU值：1500字节(国内1500字节)<br>0x0800：上层为IP协议<br>0x0806：上层为ARP协议</p>
+<h3 id="工作在数据链路层的设备"><a href="#工作在数据链路层的设备" class="headerlink" title="工作在数据链路层的设备"></a>工作在数据链路层的设备</h3><p>交换机/网卡<br><strong>交换机工作原理</strong><br>AA-&gt;DD</p>
+<img src="/2020/06/10/%E5%8D%83%E5%B3%B0%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%861.png" class="">
+<p>MAC地址表越完整越好</p>
+<img src="/2020/06/10/%E5%8D%83%E5%B3%B0%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%862.png" class="">
+<p><code>收到一个数据帧后：</code><br>首先学习帧中的源MAC地址来形成MAC地址表(如果有的话看看跟之前的表是否吻合，不吻合则更新)<br>然后检查帧中的目标MAC地址，并匹配MAC地址表(如表中有匹配项，则单播转发；如表中无匹配项，则除接收端口外广播转发)<br>MAC地址表的老化时间默认300s(可修改)</p>
+<h3 id="交换机的端口"><a href="#交换机的端口" class="headerlink" title="交换机的端口"></a>交换机的端口</h3><p>E 10Mb<br>F 100Mb<br>G 1000Mb<br>Te 10000Mb<br>F0/1   0模块号  1接口号<br>接口速率自适应：1000/100/10M自适应<br>速率工作模式可以为10，100，1000任何一种状态<br>端口状态：up/down<br>down3种可能：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">人工down掉</span><br><span class="line">速率不匹配</span><br><span class="line">双工模式不匹配(双工duplex)(单工、半双工、全双工)</span><br></pre></td></tr></table></figure>
+<h3 id="交换机基本工作模式及命令"><a href="#交换机基本工作模式及命令" class="headerlink" title="交换机基本工作模式及命令"></a>交换机基本工作模式及命令</h3><p>第一次配置网络设备，需要使用console线<br>在PC需要使用“超级终端”或其他软件<br><strong>用户模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">switch&gt;</span><br><span class="line">可以查看交换机的基本简单信息，且不能做任何修改配置！</span><br></pre></td></tr></table></figure>
+<p><strong>特权模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">switch&gt; enable</span><br><span class="line">switch#</span><br><span class="line">可以查看所有配置，且不能修改配置，但可以做测试、保存、初始化等操作</span><br></pre></td></tr></table></figure>
+<p><strong>全局配置模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">switch# configure terminal</span><br><span class="line">switch(config)#</span><br><span class="line">默认不能查看配置！可以修改配置，且全局生效！</span><br></pre></td></tr></table></figure>
+<p><strong>接口配置模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">switch(config)# interface f0&#x2F;1(接口编号)</span><br><span class="line">switch(config-if)#</span><br><span class="line">默认不能查看配置！可以修改配置，且对该端口生效！</span><br></pre></td></tr></table></figure>
+<p><code>exit</code>退出一级<br><strong>console口/线/控制台 模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">switch(config)#line console 0</span><br><span class="line">switch(config-line)#</span><br><span class="line">默认不能查看配置！可以修改配置，且对console口生效！</span><br></pre></td></tr></table></figure>
+<p><strong>琐碎</strong><br>exit退出一级<br>end直接退到特权模式<br>支持命令缩写<br>？的用法<br>历史命令<br>tab补全键<br>ctrl+u：快速删除光标全所有字符<br>ctrl+a：快速定位光标到行首<br>ctrl+e：快速定位光标到行尾</p>
+<p><strong>实际应用</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">配置主机名</span><br><span class="line">switch# configure terminal</span><br><span class="line">switch(config)#</span><br><span class="line">switch(config)#hostname sw1</span><br><span class="line">sw1(config)#hostname sw-bj-01-04(设备名)</span><br><span class="line"></span><br><span class="line">设置用户密码</span><br><span class="line">sw1(config)#line console 0</span><br><span class="line">sw1(config-line)#pass</span><br><span class="line">sw1(config-line)#password ******</span><br><span class="line">sw1(config-line)#login</span><br><span class="line"></span><br><span class="line">保存配置</span><br><span class="line">switch&gt; enable</span><br><span class="line">switch&gt;copy running-config startup-config</span><br><span class="line">或者</span><br><span class="line">write(不普遍适用)</span><br><span class="line"></span><br><span class="line">查看running-config配置</span><br><span class="line">switch&gt; enable</span><br><span class="line">switch# show running-config  (简写：sh run)</span><br><span class="line"></span><br><span class="line">查看startup-config配置</span><br><span class="line">show startup-config</span><br><span class="line"></span><br><span class="line">重启设备</span><br><span class="line">switch&gt; enable</span><br><span class="line">switch# reload</span><br></pre></td></tr></table></figure>
+
+<p>在内存中存在一个文件：<code>running-config</code>；第一次开机，系统会在内存中自动创建一个新的干净的running-config<br>hostname password</p>
+<p><code>交换机开机动作</code>：先去硬盘中查找startup-config是否存在，如果不存在，在内存中创建新的running-config；如果存在，则复制到内存中并改名为running-config</p>
 ]]></content>
       <categories>
         <category>安全</category>
