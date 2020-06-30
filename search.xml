@@ -82,30 +82,6 @@
       </tags>
   </entry>
   <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-<hr>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
-<hr>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
-<hr>
-<p>除初始化外，不允许使用花括号的形式赋值</p>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>千峰网络安全</title>
     <url>/2020/06/10/%E5%8D%83%E5%B3%B0%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</url>
     <content><![CDATA[<p>千峰网络安全入门笔记，持续更新ing…</p>
@@ -476,27 +452,51 @@
       </tags>
   </entry>
   <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+<hr>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
+<hr>
+<p>除初始化外，不允许使用花括号的形式赋值</p>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机组成原理</title>
     <url>/2020/06/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<p>计算机组成原理，好难啊啊啊啊啊</p>
 <a id="more"></a>
 
 <h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><h2 id="计算机性能指标"><a href="#计算机性能指标" class="headerlink" title="计算机性能指标"></a>计算机性能指标</h2><p><strong>吞吐量</strong>：表征一台计算机在某一时间间隔内能够处理的信息量，单位是字节/秒（B/s）。</p>
-<p><strong>响应时间</strong>：表征从输入有效到系统产生响应之间的时间度量，用时间单位来度量，例如微秒（10-6s）、纳秒（10-9s）。</p>
+<p><strong>响应时间</strong>：表征从输入有效到系统产生响应之间的时间度量，用时间单位来度量，例如微秒us（10^(-6)s）、纳秒ns（10^(-9)s）。</p>
 <p><strong>利用率</strong>：在给定的时间间隔内，系统被实际使用的时间所占的比率，一般用百分比表示。</p>
 <p><strong>处理机字长</strong>：指处理机运算器中一次能够完成二进制数运算的位数，决定了寄存器和数据总线的位数。当前处理机的字长有8位、16位、32位、64位。</p>
 <p>字长越长，包含的信息量越多，精度越高，硬件成本也越高</p>
 <p><strong>总线宽度</strong>：一般指CPU中运算器与存储器之间进行互连的内部总线二进制位数。</p>
-<p><strong>存储容量</strong>：存储器中所有存储单元的总数目，通常用KB、MB、GB、TB来表示。其中K=210，M=220，G=230，T=240，B=8位（1个字节）。</p>
+<p><strong>存储容量</strong>：存储器中所有存储单元的总数目，通常用KB、MB、GB、TB来表示。其中K=2^10，M=2^20，G=2^30，T=2^40，B=8位（1个字节）。</p>
 <p>存储器容量越大，记忆的二进制数越多。有内存容量和辅存容量两种指标。存储容量越大，能存储的信息就越多。<br>                    1KB=1024B，1MB=1024KB，<br>                    1GB=1024MB，1TB=1024GB</p>
-<p><strong>存储器带宽</strong>：存储器的速度指标，单位时间内从存储器读出的二进制数信息量，一般用字节数/秒表示。<br>带宽的计算：<code>存储带宽</code>、<code>总线带宽</code>、<code>显示带宽</code>等<br>通信中的带宽使用的单位有：</p>
+<p><strong>存储器带宽</strong>：存储器的速度指标，单位时间内从存储器读出的二进制数信息量，一般用<code>字节数/秒</code>表示。<br>带宽的计算：<code>存储带宽</code>、<code>总线带宽</code>、<code>显示带宽</code>等<br>通信中的带宽使用的单位有：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">“千比特&#x2F;秒”(kb&#x2F;s)，     1kbps &#x3D; 103 b&#x2F;s &#x3D;1000 bps</span><br><span class="line">“兆比特&#x2F;秒”(Mb&#x2F;s)，   1Mbps &#x3D; 106 b&#x2F;s &#x3D;1000 kbps</span><br><span class="line">“千兆比特&#x2F;秒”(Gb&#x2F;s)，1Gbps &#x3D; 109 b&#x2F;s &#x3D;1000 Mbps</span><br><span class="line">“兆兆比特&#x2F;秒”(Tb&#x2F;s)， 1Tbps &#x3D; 1012b&#x2F;s &#x3D;1000 Gbps</span><br></pre></td></tr></table></figure>
 
 <p>如果把b换成B，则表示字节而不是比特（位），例如，10MBps表示 10兆字节/秒。</p>
-<p><strong>主频/时钟周期</strong>：CPU的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟，<code>主时钟的频率（f）</code>叫CPU的<code>主频</code>。度量单位是MHz、GHz。<br>    例如Pentium系列机为60MHz～266MHz，而Pentium 4升至3.6GHz。<br><code>主频的倒数</code>称为<code>CPU时钟周期</code>（T），即<code>T=1/f</code>，度量单位是微秒us 、纳秒ns。</p>
+<p><strong>主频/时钟周期</strong>：CPU的工作节拍受主时钟控制，主时钟不断产生固定频率的时钟，<code>主时钟的频率（f）</code>叫CPU的<code>主频</code>。度量单位是MHz、GHz。<br>    例如Pentium系列机为60MHz～266MHz，而Pentium 4升至3.6GHz。<br><code>主频的倒数</code>称为<code>CPU时钟周期</code>（T），即<code>T=1/f</code>，度量单位是<code>微秒us</code> 、<code>纳秒ns</code>。</p>
 <p><strong>CPU执行时间</strong>：表示CPU执行一段程序所占用的CPU时间，可用下式计算：<br>    <code>CPU执行时间 ＝ CPU时钟周期数 × CPU时钟周期长（T）</code></p>
 <p><strong>CPI</strong>：每条指令周期数，即执行一条指令所需的平均时钟周期数。<br>           <code>CPI = &quot;执行某段程序所需的CPU时钟周期数&quot; /&quot;程序包含的指令条数&quot;</code></p>
-<p><strong>MIPS</strong>：每秒百万条指令数，表示单位时间内执行的指令数目。<br>           <code>MIPS = &quot;指令条数&quot; /&quot;程序执行时间×106&quot;  = &quot;时钟频率&quot; /&quot;CPI×106&quot;  = &quot;f&quot; /&quot;CPI×106&quot;</code></p>
+<p><strong>MIPS</strong>：每秒百万条指令数，表示单位时间内执行的指令数目。<br>           <code>MIPS = &quot;指令条数&quot; /&quot;程序执行时间×10^6&quot;  = &quot;时钟频率&quot; /&quot;CPI×10^6&quot;  = &quot;f&quot; /&quot;CPI×10^6&quot;</code></p>
 <p><strong>MFLOPS</strong>：每秒百万次浮点操作次数，用来衡量机器浮点操作的性能。<br><code>MIPS</code>是单位时间内的执行指令数，所以MIPS值越高说明机器速度越快。<br><code>MFLOPS</code>是基于操作而非指令的，只能用来衡量机器浮点操作的性能，而不能体现机器的整体性能。<br><code>TFLOPS</code>表示每秒万亿次浮点操作次数，该技术指标一般在超级计算机中使用。</p>
 <h2 id="计算机的硬件"><a href="#计算机的硬件" class="headerlink" title="计算机的硬件"></a>计算机的硬件</h2><h3 id="硬件组成要素"><a href="#硬件组成要素" class="headerlink" title="硬件组成要素"></a>硬件组成要素</h3><p>存储器、运算器、控制器、输入设备、输出设备</p>
 <h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><p>算术运算 和 逻辑运算，称为<code>ALU</code>(算数逻辑运算部件)<br>参与运算的数是<code>二进制</code>的<br>数的位数越多，计算的精度就越高<br>位数越多，所需电子器件也越多，一般8位、16位、32位、64位</p>
