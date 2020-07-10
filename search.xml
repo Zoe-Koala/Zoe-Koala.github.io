@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数模</title>
+    <url>/2020/07/10/%E6%95%B0%E6%A8%A1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Windows程序设计</title>
     <url>/2020/06/10/Windows%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<p>《Windows程序设计》学习，漫长的过程，加油冲冲冲！~</p>
@@ -79,6 +84,30 @@
       </categories>
       <tags>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小毛病的治理</title>
+    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
+    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
+<a id="more"></a>
+<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
+<ol>
+<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
+<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
+</ol>
+<hr>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
+<hr>
+<p>除初始化外，不允许使用花括号的形式赋值</p>
+]]></content>
+      <categories>
+        <category>零碎</category>
+      </categories>
+      <tags>
+        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
@@ -443,36 +472,16 @@
 <p>在内存中存在一个文件：<code>running-config</code>；第一次开机，系统会在内存中自动创建一个新的干净的running-config<br>hostname password</p>
 <p><code>交换机开机动作</code>：先去硬盘中查找startup-config是否存在，如果不存在，在内存中创建新的running-config；如果存在，则复制到内存中并改名为running-config</p>
 <h1 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h1><p>学会简单的抓包<br>验证TCP/IP协议栈结构<br>验证帧结构</p>
-]]></content>
+<h1 id="IP包头分析与静态路由"><a href="#IP包头分析与静态路由" class="headerlink" title="IP包头分析与静态路由"></a>IP包头分析与静态路由</h1><h2 id="路由原理"><a href="#路由原理" class="headerlink" title="路由原理"></a>路由原理</h2><h3 id="IP包头分析"><a href="#IP包头分析" class="headerlink" title="IP包头分析"></a>IP包头分析</h3><p>IP数据包格式</p>
+<img src="/2020/06/10/%E5%8D%83%E5%B3%B0%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/IP%E6%95%B0%E6%8D%AE%E5%8C%85%E6%A0%BC%E5%BC%8F.png" class="">
+<p>IP包头：20-60字节<br>版本(4)：ipv4/ipv6<br>首部长度(4)：声明ip包头有无可选项，正常为20字节，0101单位4B<br>优先级与服务类型(8)：优先级3比特，服务类型4比特，最后1比特未使用<br>段偏移量(13)：0、1480、2960….(1480的倍数)分片先后的顺序<br>标示符(16)：标识同一个数据报文的所有分片<br>标志(3)：第一位无用，第二位表示是否分片，最后一位表示是不是最后一个分片<br>总长度(16)：IP报文的总长度，345层的总长度<br>TTL(8)：防止一个数据包在网络上永久循环</p>
+<h3 id="路由器工作原理"><a href="#路由器工作原理" class="headerlink" title="路由器工作原理"></a>路由器工作原理</h3><p>路由：跨越从源主机到目标主机的一个互联网络来转发数据包的过程(路由器为IP包选择路径的过程)</p>
+<h3 id="路由表的形成"><a href="#路由表的形成" class="headerlink" title="路由表的形成"></a>路由表的形成</h3><h2 id="静态路由和默认路由"><a href="#静态路由和默认路由" class="headerlink" title="静态路由和默认路由"></a>静态路由和默认路由</h2><h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><h3 id="默认路由"><a href="#默认路由" class="headerlink" title="默认路由"></a>默认路由</h3><h3 id="路由器转发数据包的封装过程"><a href="#路由器转发数据包的封装过程" class="headerlink" title="路由器转发数据包的封装过程"></a>路由器转发数据包的封装过程</h3><h3 id="交换与路由对比"><a href="#交换与路由对比" class="headerlink" title="交换与路由对比"></a>交换与路由对比</h3><h2 id="静态路由和默认路由的配置"><a href="#静态路由和默认路由的配置" class="headerlink" title="静态路由和默认路由的配置"></a>静态路由和默认路由的配置</h2><h3 id="静态路由配置命令"><a href="#静态路由配置命令" class="headerlink" title="静态路由配置命令"></a>静态路由配置命令</h3>]]></content>
       <categories>
         <category>安全</category>
       </categories>
       <tags>
         <tag>安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小毛病的治理</title>
-    <url>/2020/06/10/%E5%B0%8F%E6%AF%9B%E7%97%85%E7%9A%84%E6%B2%BB%E7%90%86/</url>
-    <content><![CDATA[<p>各种乱七八糟的东西。。。</p>
-<a id="more"></a>
-<h1 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h1><p><strong>无法解析的外部符号</strong><br>VS中出现：error LNK2019: 无法解析的外部符号 <strong>imp</strong>PlaySoundA@12，该符号在函数 …. 中被引用….的编译错误是，一般是是因为PlaySound函数在Winmm.lib库中，所有需要需要链接库，以下方法可解决：</p>
-<ol>
-<li>头文件中声明：#pragma comment(lib, “winmm”)</li>
-<li>菜单Project –&gt; Settings…–&gt;Link标签–&gt;Object/Library modules:中加入Winmm.lib</li>
-</ol>
-<hr>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="备选拼写：ios646-h头文件"><a href="#备选拼写：ios646-h头文件" class="headerlink" title="备选拼写：ios646.h头文件"></a>备选拼写：ios646.h头文件</h2><p>如果c语言程序中包含该头文件，便可以用<code>and</code>代替<code>&amp;&amp;</code>，<code>or</code>代替<code>||</code>，<code>not</code>代替<code>!</code></p>
-<hr>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>C99规定，可以在初始化列表中使用带方括号的小标知名待初始化的元素<br><code>int arr[6]={[5]=212};</code>//把arr[5]初始化为212<br>对于一般的初始化，在初始化一个元素后，未初始化的元素都会被设置为0</p>
-<hr>
-<p>除初始化外，不允许使用花括号的形式赋值</p>
-]]></content>
-      <categories>
-        <category>零碎</category>
-      </categories>
-      <tags>
-        <tag>零碎</tag>
       </tags>
   </entry>
   <entry>
