@@ -87,7 +87,7 @@
 <meta property="og:description" content="数模培训">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-10T02:35:44.000Z">
-<meta property="article:modified_time" content="2020-07-16T02:33:30.616Z">
+<meta property="article:modified_time" content="2020-07-22T03:42:38.474Z">
 <meta property="article:author" content="wuwen">
 <meta property="article:tag" content="数模">
 <meta name="twitter:card" content="summary">
@@ -426,6 +426,64 @@
 <li>建立各种水质的比例与排污量、流量的二元线性回归模型</li>
 </ol>
 <h2 id="问题四"><a href="#问题四" class="headerlink" title="问题四"></a>问题四</h2><p>利用问题三的模型计算(稍作修改)</p>
+<h1 id="2012——A解析"><a href="#2012——A解析" class="headerlink" title="2012——A解析"></a>2012——A解析</h1><p>成对数据的假设检验：<br>回归分析、聚类分析、主成分分析、判别分析</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="成对数据的假设检验"><a href="#成对数据的假设检验" class="headerlink" title="成对数据的假设检验"></a>成对数据的假设检验</h3><p>有时为了比较两种产品，或两钟仪器，两种方法，我们在相同的条件下作对比实验，得到一批成对的观测值。然后分析观察数据作出判断。</p>
+<h3 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h3><ol>
+<li>相关性分析<br>例如人的升高与体重，居民的可支配收入与支出等<br>回归分析：建立数学模型分析具有相关关系的变量间的相互关系，并作出相应估计和预测</li>
+</ol>
+<ul>
+<li>按相关程度分类：<br>完全相关、不完全相关、不相关</li>
+<li>按相关方向分类：<br>正相关、负相关</li>
+<li>按相关形式分类：<br>线性相关、非线性相关(曲线相关)</li>
+</ul>
+<ol start="2">
+<li>多元线性回归模型<br>回归方程要有检验<br><code>方程显著性</code>检验–<code>F-检验</code><br><code>回归系数的显著性</code>检验–<code>t-检验</code><br><code>显著性水平</code>、<code>置信区间</code><br>解决自变量多重共线性问题的一个常用方法是<code>逐步回归分析</code></li>
+</ol>
+<h3 id="聚类分析"><a href="#聚类分析" class="headerlink" title="聚类分析"></a>聚类分析</h3><ol>
+<li>聚类分析<br>将研究对象(一些个体的集合)，按照某个标准分成若干类</li>
+</ol>
+<ul>
+<li>Q型聚类：按照变量对观测值进行聚类；</li>
+<li>R型聚类：按照观测值对变量进行聚类；</li>
+</ul>
+<ol start="2">
+<li>系统聚类法<br>将类由多变少的一种方法</li>
+</ol>
+<h3 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h3><ol>
+<li>设法将原来具有一定相关性的一些指标，重新组合成一组新的互相无关的综合指标(越少越好)来代替原来的指标。<br>主成分分析是研究如何通过少数几个主成分来揭示多个变量间的内部结构。。。</li>
+<li>总体主成分的求法</li>
+<li>主成分的选取</li>
+</ol>
+<h2 id="葡萄酒的评价"><a href="#葡萄酒的评价" class="headerlink" title="葡萄酒的评价"></a>葡萄酒的评价</h2><p>异常数据及缺失数据的处理<br>设计到的符号多，如果不注意，会产生一些问题(乱、混淆)</p>
+<h3 id="问题一-1"><a href="#问题一-1" class="headerlink" title="问题一"></a>问题一</h3><h4 id="一-判别两组评酒员的评价结果有无显著性差异"><a href="#一-判别两组评酒员的评价结果有无显著性差异" class="headerlink" title="一. 判别两组评酒员的评价结果有无显著性差异"></a>一. 判别两组评酒员的评价结果有无显著性差异</h4><ol>
+<li>先计算：每组10个评酒员对同一瓶酒评分的样本均值、样本方差<br>一定要给出计算公式及结果</li>
+<li>对两组评酒员的均值有无差异性进行检验(红白酒分开做)<br>(讨论：评价结果有无显著性差异)</li>
+</ol>
+<h4 id="判别两组评酒员哪一组结果更可信"><a href="#判别两组评酒员哪一组结果更可信" class="headerlink" title="判别两组评酒员哪一组结果更可信"></a>判别两组评酒员哪一组结果更可信</h4><ol>
+<li>首先，要给出<code>两组评酒员可信的标准</code><br>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标准1：同一组内，不同的评酒员对同一瓶酒的分数差异(方差)；越小越好</span><br><span class="line">标准2：同一组内的每一位评酒员，对不同酒的分数差异(方差)；越大越好</span><br></pre></td></tr></table></figure></li>
+<li>按照标准2，</li>
+</ol>
+<h3 id="问题二-1"><a href="#问题二-1" class="headerlink" title="问题二"></a>问题二</h3><p>分级依据：</p>
+<ol>
+<li>酿酒葡萄的理化指标：30个一级指标，33个二级指标</li>
+<li>葡萄酒的质量：20位评委对每一种酒所打分数的平均值</li>
+</ol>
+<p>不同理化指标数据差距较大：</p>
+<ol>
+<li>首先，要对不同理化指标的数据进行标准化处理</li>
+<li>然后利用30个一级指标进行聚类(要说明一下为何没有二级指标)<br>一般分成4类(此时不知道哪类是好是坏)</li>
+<li>最后，再计算评委对每一类中酿酒葡萄对应的葡萄酒的打分值(平均值)，将以上的4类酿酒葡萄分为：<br>优良中差四个等级的葡萄</li>
+</ol>
+<h3 id="问题三-1"><a href="#问题三-1" class="headerlink" title="问题三"></a>问题三</h3><p>首先，对酿酒葡萄的理化指标(包括芳香物质)进行分类和筛选<br>分析 葡萄酒的理化指标是否与酿酒葡萄的理化指标相关性<br>然后，最后利用多元线性回归的方法，求出具体的关系<br>既要给出 酿酒葡萄与葡萄酒的成分之间关系的具体的数学表达式</p>
+<ol>
+<li>进行酿酒葡萄指标和葡萄酒指标的相关性分析(要有模型、结果)</li>
+<li>理化指标的筛选和分类：保留相关性好的理化指标</li>
+<li>对具有较好的相关性指标，求出相关关系(逐步线性回归)</li>
+</ol>
+<h3 id="问题四-1"><a href="#问题四-1" class="headerlink" title="问题四"></a>问题四</h3><ol>
+<li>关键：葡萄酒质量依赖于葡萄酒和酿酒葡萄的理化指标的多元回归分析<br>建立多元线性回归表达式(模型)，其中必须有以下三个指标：花色苷、单宁、总酚<br>因变量是葡萄酒的质量，自变量是葡萄酒和酿酒葡萄的理化指标</li>
+<li>如果多元线性回归能通过检验，那么就用葡萄和葡萄酒的理化指标来评价葡萄酒的质量；否则，不能<br>葡萄酒质量：外观、口感、香气、平衡/整体评价</li>
+</ol>
 <h1 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a>时间序列</h1><p>描述过去、分析规律、预测未来</p>
 <ol>
 <li>数据具有周期性时才能使用时间序列分解，例如月份(周期12)、季度(周期4)，如果是年份则不行</li>
@@ -479,6 +537,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/17/%E5%B0%8F%E4%BB%A3%E7%A0%81%E6%AE%B5/" rel="prev" title="小代码段">
+                小代码段 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -555,7 +617,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +628,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -577,7 +639,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -610,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#论文写作"><span class="nav-number">1.</span> <span class="nav-text">论文写作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2006——B解析"><span class="nav-number">2.</span> <span class="nav-text">2006——B解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2005——A解析"><span class="nav-number">3.</span> <span class="nav-text">2005——A解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一"><span class="nav-number">3.1.</span> <span class="nav-text">问题一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二"><span class="nav-number">3.2.</span> <span class="nav-text">问题二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题三"><span class="nav-number">3.3.</span> <span class="nav-text">问题三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题四"><span class="nav-number">3.4.</span> <span class="nav-text">问题四</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间序列"><span class="nav-number">4.</span> <span class="nav-text">时间序列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间序列分析的步骤："><span class="nav-number">4.1.</span> <span class="nav-text">时间序列分析的步骤：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#论文写作"><span class="nav-number">1.</span> <span class="nav-text">论文写作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2006——B解析"><span class="nav-number">2.</span> <span class="nav-text">2006——B解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2005——A解析"><span class="nav-number">3.</span> <span class="nav-text">2005——A解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一"><span class="nav-number">3.1.</span> <span class="nav-text">问题一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二"><span class="nav-number">3.2.</span> <span class="nav-text">问题二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题三"><span class="nav-number">3.3.</span> <span class="nav-text">问题三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题四"><span class="nav-number">3.4.</span> <span class="nav-text">问题四</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2012——A解析"><span class="nav-number">4.</span> <span class="nav-text">2012——A解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">4.1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#成对数据的假设检验"><span class="nav-number">4.1.1.</span> <span class="nav-text">成对数据的假设检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归分析"><span class="nav-number">4.1.2.</span> <span class="nav-text">回归分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类分析"><span class="nav-number">4.1.3.</span> <span class="nav-text">聚类分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主成分分析"><span class="nav-number">4.1.4.</span> <span class="nav-text">主成分分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#葡萄酒的评价"><span class="nav-number">4.2.</span> <span class="nav-text">葡萄酒的评价</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">问题一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-判别两组评酒员的评价结果有无显著性差异"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">一. 判别两组评酒员的评价结果有无显著性差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判别两组评酒员哪一组结果更可信"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">判别两组评酒员哪一组结果更可信</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二-1"><span class="nav-number">4.2.2.</span> <span class="nav-text">问题二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题三-1"><span class="nav-number">4.2.3.</span> <span class="nav-text">问题三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题四-1"><span class="nav-number">4.2.4.</span> <span class="nav-text">问题四</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间序列"><span class="nav-number">5.</span> <span class="nav-text">时间序列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间序列分析的步骤："><span class="nav-number">5.1.</span> <span class="nav-text">时间序列分析的步骤：</span></a></li></ol></li></ol></div>
             
 
           </div>
