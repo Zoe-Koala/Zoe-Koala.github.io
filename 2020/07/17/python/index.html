@@ -87,7 +87,7 @@
 <meta property="og:description" content="python的学习">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-17T13:00:17.000Z">
-<meta property="article:modified_time" content="2020-07-17T13:06:13.560Z">
+<meta property="article:modified_time" content="2020-07-25T07:56:22.139Z">
 <meta property="article:author" content="wuwen">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -400,8 +400,18 @@
 <p>把<code>list</code>、<code>dict</code>、<code>str</code>等<code>Iterable</code>变成<code>Iterator</code>可以使用<code>iter()</code>函数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; isinstance(iter([]), Iterator)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; isinstance(iter(&#39;abc&#39;), Iterator)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
 
-<p><strong>小结</strong><br>凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型；<br>凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个<code>惰性计算</code>的序列；<br>集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过<code>iter()</code>函数获得一个Iterator对象。</p>
-<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2>
+<p><strong>小结</strong><br>凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型；<br>凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个<code>惰性计算</code>的序列；<br>集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过<code>iter()</code>函数获得一个Iteratobangwr对象。</p>
+<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><h3 id="高阶函数-Higher-order-function"><a href="#高阶函数-Higher-order-function" class="headerlink" title="高阶函数 Higher-order function"></a>高阶函数 Higher-order function</h3><p>函数本身也可以赋值给变量，即：变量可以指向函数<br>函数名其实就是指向函数的变量！</p>
+<p>一个函数可以接收另一个函数作为参数，这种函数就称之为<strong>高阶函数</strong></p>
+<h4 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h4><p><code>map()</code>函数接收两个参数，一个是函数，一个是<code>Iterable</code>，map将传入的函数依次作用到序列的每个元素，并把结果作为新的<code>Iterator</code>返回</p>
+<p><code>reduce</code>把一个函数作用在一个序列<code>[x1, x2, x3, ...]</code>上，这个函数必须接收<code>两个参数</code>，<code>reduce</code>把结果继续和序列的下一个元素做<code>累积计算</code></p>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p>Python内建的<code>filter()</code>函数用于过滤序列。<br><code>filter()</code>把传入的函数依次作用于每个元素，然后根据返回值是<code>True</code>还是<code>False</code>决定保留还是丢弃该元素</p>
+<p><code>filter()</code>函数返回的是一个<code>Iterator</code>，也就是一个<code>惰性序列</code>，所以要强迫filter()完成计算结果，需要用<code>list()</code>函数获得所有结果并返回list</p>
+<h4 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h4><p>Python内置的<code>sorted()</code>函数就可以对list进行排序</p>
+<p>sorted()函数也是一个高阶函数，它还可以接收一个<code>key</code>函数来实现自定义的排序<br><code>sorted([36, 5, -12, 9, -21], key=abs)</code><br>要进行反向排序，不必改动key函数，可以传入第三个参数<code>reverse=True</code></p>
+<h3 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h3><p><strong>函数作为返回值</strong><br>高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回</p>
+<p><strong>闭包</strong><br><strong>返回函数不要引用任何循环变量，或者后续会发生变化的变量</strong></p>
+
       
     </div>
     
@@ -571,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-基础"><span class="nav-number">1.</span> <span class="nav-text">python 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python函数"><span class="nav-number">1.1.</span> <span class="nav-text">python函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-迭代"><span class="nav-number">1.2.</span> <span class="nav-text">python 迭代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python生成器"><span class="nav-number">1.3.</span> <span class="nav-text">python生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python迭代器"><span class="nav-number">1.4.</span> <span class="nav-text">python迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.5.</span> <span class="nav-text">函数式编程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-基础"><span class="nav-number">1.</span> <span class="nav-text">python 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python函数"><span class="nav-number">1.1.</span> <span class="nav-text">python函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-迭代"><span class="nav-number">1.2.</span> <span class="nav-text">python 迭代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python生成器"><span class="nav-number">1.3.</span> <span class="nav-text">python生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python迭代器"><span class="nav-number">1.4.</span> <span class="nav-text">python迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.5.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶函数-Higher-order-function"><span class="nav-number">1.5.1.</span> <span class="nav-text">高阶函数 Higher-order function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map-reduce"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">map&#x2F;reduce</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sorted"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">sorted</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回函数"><span class="nav-number">1.5.2.</span> <span class="nav-text">返回函数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
