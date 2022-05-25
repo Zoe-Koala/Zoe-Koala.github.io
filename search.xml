@@ -1567,4 +1567,80 @@ Pentium 4的指令cache位于指令译码逻辑和执行部件之间。<br><code
         <tag>硬件</tag>
       </tags>
   </entry>
+  <entry>
+    <title>C_Primer_Plus</title>
+    <url>/2022/04/13/C-Primer-Plus/</url>
+    <content><![CDATA[<p>《C Primer Plus》学习记录</p>
+<a id="more"></a>
+<h1 id="计算机编程基础知识"><a href="#计算机编程基础知识" class="headerlink" title="计算机编程基础知识"></a>计算机编程基础知识</h1><h2 id="初识C语言"><a href="#初识C语言" class="headerlink" title="初识C语言"></a>初识C语言</h2><h3 id="对编程而言，可移植性意味着什么？"><a href="#对编程而言，可移植性意味着什么？" class="headerlink" title="对编程而言，可移植性意味着什么？"></a>对编程而言，可移植性意味着什么？</h3><p>完美的可移植程序是，其源代码无需修改就能在不同计算机系统中成功编译的程序。</p>
+<h3 id="解释源代码文件、目标代码文件和可执行文件有什么区别？"><a href="#解释源代码文件、目标代码文件和可执行文件有什么区别？" class="headerlink" title="解释源代码文件、目标代码文件和可执行文件有什么区别？"></a>解释源代码文件、目标代码文件和可执行文件有什么区别？</h3><p>源代码文件包含程序员使用的任何编程语言编写的代码。目标代码文件包含机器语言代码，它不必是完整的程序代码。可执行文件包含组成可执行程序的完整机器语言代码。</p>
+<h3 id="编程的7个主要步骤是什么？"><a href="#编程的7个主要步骤是什么？" class="headerlink" title="编程的7个主要步骤是什么？"></a>编程的7个主要步骤是什么？</h3><ol>
+<li>定义程序目标</li>
+<li>设计程序</li>
+<li>编写程序</li>
+<li>编译程序</li>
+<li>运行程序</li>
+<li>测试和调试程序</li>
+<li>护和修改程序</li>
+</ol>
+<h3 id="编译器的任务是什么？"><a href="#编译器的任务是什么？" class="headerlink" title="编译器的任务是什么？"></a>编译器的任务是什么？</h3><p>编译器把源代码（如，用C语言编写的代码）翻译成等价的机器语言代码（也叫作目标代码）。</p>
+<h3 id="链接器的任务是什么？"><a href="#链接器的任务是什么？" class="headerlink" title="链接器的任务是什么？"></a>链接器的任务是什么？</h3><p>链接器把编译器翻译好的源代码以及库代码和启动代码组合起来，生成一个可执行程序。</p>
+<h2 id="C语言概述"><a href="#C语言概述" class="headerlink" title="C语言概述"></a>C语言概述</h2><h3 id="C语言的基本模块是什么？"><a href="#C语言的基本模块是什么？" class="headerlink" title="C语言的基本模块是什么？"></a>C语言的基本模块是什么？</h3><p>它们都叫作函数。</p>
+<h3 id="什么是语法错误？"><a href="#什么是语法错误？" class="headerlink" title="什么是语法错误？"></a>什么是语法错误？</h3><p>语法错误违反了组成语句或程序的规则。<br>这是一个有语法错误的英文例子：Me speak English good.。<br>这是一个有语法错误的C语言例子：printf”Where are the parentheses?”;。</p>
+<h3 id="什么是语义错误？"><a href="#什么是语义错误？" class="headerlink" title="什么是语义错误？"></a>什么是语义错误？</h3><p>语义错误是指含义错误。<br>这是一个有语义错误的英文例子：This sentence isexcellent Czech.。<br>这是一个有语义错误的C语言例子： thrice_n = 3 + n;。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础</title>
+    <url>/2022/05/25/Java%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>Java基础学习，持续更新ing…<br>语法结构、面向对象核心<br>工具类、集合、异常<br>线程、I/O、反射、注解等</p>
+<a id="more"></a>
+<h1 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h1><p>百度进行了解，不想再听了</p>
+<h2 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h2><ol>
+<li>跨平台性*：平台（不同厂商芯片）  平台（不同版本的操作系统）</li>
+<li>面向对象*</li>
+<li>简单性：省去了C++多继承、指针等</li>
+<li>健壮性（鲁棒性）：垃圾回收机制、异常处理机制等</li>
+<li>多线程性：并行操作、提高执行性能、线程安全</li>
+<li>大数据开发相关</li>
+</ol>
+<h1 id="环境搭建-amp-编译"><a href="#环境搭建-amp-编译" class="headerlink" title="环境搭建&amp;编译"></a>环境搭建&amp;编译</h1><p><strong>已安装，有需要百度即可</strong><br>JVM：Java Virtual Machine虚拟机，在内存中开辟一块空间，将源文件编译成计算机能识别的字节码。<br>程序储存在哪？——程序就是英文——储存在一个地方（文件）<br>编译：将我们写完的程序（计算机不认识）编译成计算机识别的字节码文件。最终有两个文件，一个源文件，一个字节码文件，储存在硬盘上。<br>计算机硬件组成：主板、CPU、声卡、显卡、网卡、<strong>内存（条形 黑色芯片 寻址 临时执行使用）、硬盘（矩形 机械、固态 扇区 永久性保存）</strong>、电源<br>硬盘上的文件有不同的形式，使用后缀名区分不同的方式：.txt、.doc、.ppt、.xls、.mp3、.exe等，需要运行环境支持。<br>Java源文件.java（可以用文本文档打开）；字节码文件.class<br>JRE：Java Runtime Environment运行环境，JRE里面包含JVM<br>JDK：Java Development Kit开发工具包。javac.exe编译工具、java.exe执行工具</p>
+<h1 id="如何编写一段Java源代码？"><a href="#如何编写一段Java源代码？" class="headerlink" title="如何编写一段Java源代码？"></a>如何编写一段Java源代码？</h1><p>源代码—&gt;一堆英文（按照某种规则）<br>以文件的形式存储在计算机的硬盘上<br>源代码以后缀名.java结尾<br>文件打开里面的内容是一堆按照规律写的英文</p>
+<ol>
+<li>先写一个关键字——&gt;表示类的意思</li>
+<li>类后面给它取个名字——&gt;理论上是可以随便写的，但是有命名规则和规约。<strong>规则</strong>：可以含有字母（区分大小写 敏感 52个关键字）、数字（0-9，可以但不能放在开头）、符号（英文符号_和$）、中文（强烈不推荐——当作不行）。<strong>规约</strong>：类的名字要求<strong>首字母大写</strong>，如果两个以上的单词，每个单词的首字母都大写；起名字要见名知意，建议尽量使用英文单词</li>
+</ol>
+<p><code>Test.java</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Demo&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        System.out.println(&quot;阿巴阿巴&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="利用JDK包中提供的工具进行代码的编译与执行"><a href="#利用JDK包中提供的工具进行代码的编译与执行" class="headerlink" title="利用JDK包中提供的工具进行代码的编译与执行"></a>利用JDK包中提供的工具进行代码的编译与执行</h1><p>C:\Program Files\Wavaljdk1.80_201\bin路径下存在一个javac.exe编译工具<br>遇到了两个问题：</p>
+<ol>
+<li>编译工具双击是黑色对话框一闪而过，编译工具是在<strong>doc命令窗口</strong>中才能使用。【win+R，输入cmd，开启一个doc命令窗口，切换位置】</li>
+<li>想要利用编译工具去编译写好的Java源文件，源文件所在的路径与编译工具不在一起。【将这个工具放置在电脑中的某一个位置，这个位置是当前电脑所有目录都可以共同访问到的位置，以后就不用纠结工具在哪儿啦。相当于搭建环境的一个补充，安装JDK，配置环境变量，具体百度】<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">javac Test.java</span><br><span class="line">java Demo</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="8个基本数据类型"><a href="#8个基本数据类型" class="headerlink" title="8个基本数据类型"></a>8个基本数据类型</h2><h3 id="4个整型"><a href="#4个整型" class="headerlink" title="4个整型"></a>4个整型</h3><p>byte short int long</p>
+<h4 id="byte-字节型——-gt-8个bit-敏感的单元位"><a href="#byte-字节型——-gt-8个bit-敏感的单元位" class="headerlink" title="byte 字节型——&gt;8个bit 敏感的单元位"></a>byte 字节型——&gt;8个bit 敏感的单元位</h4><p>1byte==8bit    0 0000000    256种组合<br>用第一个bit位置来记录符号 0正数 1负数<br>数值的范围：<code>-2^7~2^7-1</code>；也就是-128~127<br>以下的其他整数类型的依次×2</p>
+<h4 id="short"><a href="#short" class="headerlink" title="short"></a>short</h4><p>2字节==16bit   65526种<br><code>-2^15~2^15-1</code>；-32768~32767</p>
+<h4 id="int"><a href="#int" class="headerlink" title="int"></a>int</h4><p>4字节==32bit<br><code>-2^32~2^32-1</code>；-2147483648~2147483647</p>
+<h4 id="long"><a href="#long" class="headerlink" title="long"></a>long</h4><p>8字节==64bit</p>
+<h3 id="2个浮点型"><a href="#2个浮点型" class="headerlink" title="2个浮点型"></a>2个浮点型</h3><p>float double</p>
+<h4 id="float-32bit"><a href="#float-32bit" class="headerlink" title="float 32bit"></a>float 32bit</h4><h4 id="double-64bit"><a href="#double-64bit" class="headerlink" title="double 64bit"></a>double 64bit</h4><h3 id="1个字符型"><a href="#1个字符型" class="headerlink" title="1个字符型"></a>1个字符型</h3><h4 id="char-16bit-2字节-Unicode编码-0-65535"><a href="#char-16bit-2字节-Unicode编码-0-65535" class="headerlink" title="char 16bit 2字节 Unicode编码 0-65535"></a>char 16bit 2字节 Unicode编码 0-65535</h4><p>字符中数字和整数的数字冲突，为了以示区分每一个字符的前后各加单引号，例如’a’、’5’、’我’<br>为什么英文和符号和数字是一个字节？为什么中文是两个字节?<br>答：ASCII——美国信息交换标准代码</p>
+<h3 id="1个布尔型-1bit"><a href="#1个布尔型-1bit" class="headerlink" title="1个布尔型 1bit"></a>1个布尔型 1bit</h3><p>boolean：true false</p>
+<h2 id="5个引用数据类型"><a href="#5个引用数据类型" class="headerlink" title="5个引用数据类型"></a>5个引用数据类型</h2><p>数组[]<br>类class<br>接口interface<br>枚举enum<br>注解@interface</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
 </search>
