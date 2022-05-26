@@ -86,11 +86,14 @@
 <meta property="og:site_name" content="Zoe-Koala&#39;s Blog">
 <meta property="og:description" content="Java基础学习，持续更新ing…语法结构、面向对象核心工具类、集合、异常线程、I&#x2F;O、反射、注解等">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2022/05/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%97%B6%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%81%9A%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88(1).png">
+<meta property="og:image" content="http://yoursite.com/2022/05/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%97%B6%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%81%9A%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88(2).png">
 <meta property="article:published_time" content="2022-05-25T11:33:21.000Z">
-<meta property="article:modified_time" content="2022-05-25T13:52:17.335Z">
+<meta property="article:modified_time" content="2022-05-26T14:06:19.285Z">
 <meta property="article:author" content="wuwen">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2022/05/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%97%B6%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%81%9A%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88(1).png">
 
 
 
@@ -393,15 +396,42 @@
 
 </li>
 </ol>
-<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="8个基本数据类型"><a href="#8个基本数据类型" class="headerlink" title="8个基本数据类型"></a>8个基本数据类型</h2><h3 id="4个整型"><a href="#4个整型" class="headerlink" title="4个整型"></a>4个整型</h3><p>byte short int long</p>
-<h4 id="byte-字节型——-gt-8个bit-敏感的单元位"><a href="#byte-字节型——-gt-8个bit-敏感的单元位" class="headerlink" title="byte 字节型——&gt;8个bit 敏感的单元位"></a>byte 字节型——&gt;8个bit 敏感的单元位</h4><p>1byte==8bit    0 0000000    256种组合<br>用第一个bit位置来记录符号 0正数 1负数<br>数值的范围：<code>-2^7~2^7-1</code>；也就是-128~127<br>以下的其他整数类型的依次×2</p>
-<h4 id="short"><a href="#short" class="headerlink" title="short"></a>short</h4><p>2字节==16bit   65526种<br><code>-2^15~2^15-1</code>；-32768~32767</p>
-<h4 id="int"><a href="#int" class="headerlink" title="int"></a>int</h4><p>4字节==32bit<br><code>-2^32~2^32-1</code>；-2147483648~2147483647</p>
-<h4 id="long"><a href="#long" class="headerlink" title="long"></a>long</h4><p>8字节==64bit</p>
-<h3 id="2个浮点型"><a href="#2个浮点型" class="headerlink" title="2个浮点型"></a>2个浮点型</h3><p>float double</p>
-<h4 id="float-32bit"><a href="#float-32bit" class="headerlink" title="float 32bit"></a>float 32bit</h4><h4 id="double-64bit"><a href="#double-64bit" class="headerlink" title="double 64bit"></a>double 64bit</h4><h3 id="1个字符型"><a href="#1个字符型" class="headerlink" title="1个字符型"></a>1个字符型</h3><h4 id="char-16bit-2字节-Unicode编码-0-65535"><a href="#char-16bit-2字节-Unicode编码-0-65535" class="headerlink" title="char 16bit 2字节 Unicode编码 0-65535"></a>char 16bit 2字节 Unicode编码 0-65535</h4><p>字符中数字和整数的数字冲突，为了以示区分每一个字符的前后各加单引号，例如’a’、’5’、’我’<br>为什么英文和符号和数字是一个字节？为什么中文是两个字节?<br>答：ASCII——美国信息交换标准代码</p>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="8个基本数据类型"><a href="#8个基本数据类型" class="headerlink" title="8个基本数据类型"></a>8个基本数据类型</h2><h3 id="4个整型"><a href="#4个整型" class="headerlink" title="4个整型"></a>4个整型</h3><p>byte short int long<br><strong>byte 字节型——&gt;8个bit 敏感的单元位</strong><br>1byte==8bit    0 0000000    256种组合<br>用第一个bit位置来记录符号 0正数 1负数<br>数值的范围：<code>-2^7~2^7-1</code>；也就是<code>-128~127</code><br>以下的其他整数类型的依次×2<br><strong>short</strong><br>2字节==16bit   65526种<br><code>-2^15~2^15-1</code>；<code>-32768~32767</code><br><strong>int</strong><br>4字节==32bit<br><code>-2^32~2^32-1</code>；<code>-2147483648~2147483647</code><br><strong>long</strong><br>8字节==64bit</p>
+<h3 id="2个浮点型"><a href="#2个浮点型" class="headerlink" title="2个浮点型"></a>2个浮点型</h3><p>float double<br><strong>float 32bit</strong><br><strong>double 64bit</strong></p>
+<h3 id="1个字符型"><a href="#1个字符型" class="headerlink" title="1个字符型"></a>1个字符型</h3><p>char 16bit 2字节 Unicode编码 0-65535<br>字符中数字和整数的数字冲突，为了以示区分每一个字符的前后各加单引号，例如<code>&#39;a&#39;</code>、<code>&#39;5&#39;</code>、<code>&#39;我&#39;</code><br>为什么英文和符号和数字是一个字节？为什么中文是两个字节?<br>答：ASCII——美国信息交换标准代码</p>
 <h3 id="1个布尔型-1bit"><a href="#1个布尔型-1bit" class="headerlink" title="1个布尔型 1bit"></a>1个布尔型 1bit</h3><p>boolean：true false</p>
-<h2 id="5个引用数据类型"><a href="#5个引用数据类型" class="headerlink" title="5个引用数据类型"></a>5个引用数据类型</h2><p>数组[]<br>类class<br>接口interface<br>枚举enum<br>注解@interface</p>
+<h2 id="5个引用数据类型"><a href="#5个引用数据类型" class="headerlink" title="5个引用数据类型"></a>5个引用数据类型</h2><p>数组[]<br>类（抽象类）class<br>接口interface<br>枚举enum<br>注解@interface</p>
+<h1 id="Java常量与变量"><a href="#Java常量与变量" class="headerlink" title="Java常量与变量"></a>Java常量与变量</h1><h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量代表是程序运行过程中不能再次改变的值<br><em>常量的作用：</em></p>
+<ol>
+<li>固定的值：代表计算过程中经常用到的值，便于程序计算。例如圆周率3.1415926…</li>
+<li>代表一个含义。例如贪吃蛇1234代表上下左右</li>
+</ol>
+<p><em>什么样的值算常量？？</em></p>
+<ol>
+<li>固定不变的值算作常量，可以认为所有基本类型的值是固定不变的，为常量</li>
+<li>特殊的常量：”abc”——&gt;String类型，String是一个引用数据类型，它的值很特殊，可以简单认为是常量</li>
+<li>自己创建的空间存储了一个固定不变的值，例如<code>final int UP=1</code></li>
+</ol>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是程序在执行过程中可以改变<br>变量是一个内存空间（小容器）<br>变量在创建（声明）的时候必须指定数据类型、变量空间的名字<br>变量空间里面只能存储一个内容（值、引用）<br>变量空间内的内容可以改变</p>
+<p><strong>变量如何创建/声明</strong><br>格式：<code>数据类型 变量名字;</code>例如：<code>int a;</code>和<code>Stringb;</code><br>需要注意：变量只是一个空间，可以只创建空间，里面不存放内容；变量空间创建后是没有默认内容的，空的；空的变量空间不能拿来使用，否则编译错误。<br><em>创建变量时需要注意命名的问题：</em></p>
+<ol>
+<li>命名规则：字母（大小写敏感）、数字（0-9不能开头）、符号（英文符号_、$）、中文（不推荐）</li>
+<li>命名规约：<br>类名字：首字母大写，两个以上单词，所有单词首字母都大写，SuperPerson；<br>变量名：首字母小写，如果两个以上单词，之后的首字母大写，superPerson，遵循驼峰式命名规则。<br>所有名字都需要见命知意，增强代码可读性</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        byte x;&#x2F;&#x2F;声明一个变量空间，空间名字是x，空间内要求存储的类型是byte整数</span><br><span class="line">        x&#x3D;1;&#x2F;&#x2F;将一个1赋值到x空间中进行存储</span><br><span class="line">        short b&#x3D;2;</span><br><span class="line">        int c&#x3D;3;</span><br><span class="line">        float e&#x3D;3.4F;</span><br><span class="line">        char g&#x3D;&#39;a&#39;;</span><br><span class="line">        boolean h&#x3D;false;</span><br><span class="line">        String i&#x3D;&quot;abc&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上创建变量并赋值的过程中，计算机底层做了什么事情？</p>
+<img src="/2022/05/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%97%B6%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%81%9A%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88(1).png" class="">
+<ol>
+<li>x是什么？变量空间 存储在哪？<br>存储在栈内存中</li>
+<li>1是什么？1是常量 存在哪？<br>常量缓冲区中</li>
+<li>=是什么？=是赋值 做了什么？<img src="/2022/05/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%97%B6%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%81%9A%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88(2).png" class="">
+
+</li>
+</ol>
+<p><strong>float e=3.4从double转化到float会有损失</strong><br>1和3.4都是常量值，存储在常量缓冲区中，常量值的存储形式肯定不是十进制，是以二进制形式存储的<br>1——&gt;32bit（int）<br>3.4——&gt;64bit（double）<br><strong>于是定义float类型时在数字后加上</strong><code>f</code>或<code>F</code></p>
+<p>同理，<strong>long类型数字超过int范围后，要在数字后面加</strong><code>L</code><br><code>-2147483648~2147483647</code>是int类型的取值范围<br>如果创建的常量值超过以上范围,程序编译检测的时候会认为数字太大<br>如果我们真的需要那么大的数字必须在后面加<code>L</code>告知</p>
+<p><strong>byte a=1为啥不报错？</strong><br>1——&gt;32bit<br>0000 0000 0000 0000 0000 0000 0000 0001<br>a——&gt;8bit<br>0000 0001<br>=赋值的时候做了一个自动的决定 自动类型转化</p>
+<p><strong>字符和字符串</strong><br>字符 char 基本数据类型 ‘a’<br>字符串 String 引用数据类型 “a”、”abc”、null、””</p>
 
       
     </div>
@@ -572,7 +602,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#历史背景"><span class="nav-number">1.</span> <span class="nav-text">历史背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java语言的特点"><span class="nav-number">1.1.</span> <span class="nav-text">Java语言的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建-amp-编译"><span class="nav-number">2.</span> <span class="nav-text">环境搭建&amp;编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何编写一段Java源代码？"><span class="nav-number">3.</span> <span class="nav-text">如何编写一段Java源代码？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用JDK包中提供的工具进行代码的编译与执行"><span class="nav-number">4.</span> <span class="nav-text">利用JDK包中提供的工具进行代码的编译与执行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">5.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8个基本数据类型"><span class="nav-number">5.1.</span> <span class="nav-text">8个基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4个整型"><span class="nav-number">5.1.1.</span> <span class="nav-text">4个整型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#byte-字节型——-gt-8个bit-敏感的单元位"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">byte 字节型——&gt;8个bit 敏感的单元位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#short"><span class="nav-number">5.1.1.2.</span> <span class="nav-text">short</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int"><span class="nav-number">5.1.1.3.</span> <span class="nav-text">int</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#long"><span class="nav-number">5.1.1.4.</span> <span class="nav-text">long</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2个浮点型"><span class="nav-number">5.1.2.</span> <span class="nav-text">2个浮点型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#float-32bit"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">float 32bit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#double-64bit"><span class="nav-number">5.1.2.2.</span> <span class="nav-text">double 64bit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1个字符型"><span class="nav-number">5.1.3.</span> <span class="nav-text">1个字符型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#char-16bit-2字节-Unicode编码-0-65535"><span class="nav-number">5.1.3.1.</span> <span class="nav-text">char 16bit 2字节 Unicode编码 0-65535</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1个布尔型-1bit"><span class="nav-number">5.1.4.</span> <span class="nav-text">1个布尔型 1bit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5个引用数据类型"><span class="nav-number">5.2.</span> <span class="nav-text">5个引用数据类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#历史背景"><span class="nav-number">1.</span> <span class="nav-text">历史背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java语言的特点"><span class="nav-number">1.1.</span> <span class="nav-text">Java语言的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建-amp-编译"><span class="nav-number">2.</span> <span class="nav-text">环境搭建&amp;编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何编写一段Java源代码？"><span class="nav-number">3.</span> <span class="nav-text">如何编写一段Java源代码？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用JDK包中提供的工具进行代码的编译与执行"><span class="nav-number">4.</span> <span class="nav-text">利用JDK包中提供的工具进行代码的编译与执行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">5.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8个基本数据类型"><span class="nav-number">5.1.</span> <span class="nav-text">8个基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4个整型"><span class="nav-number">5.1.1.</span> <span class="nav-text">4个整型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2个浮点型"><span class="nav-number">5.1.2.</span> <span class="nav-text">2个浮点型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1个字符型"><span class="nav-number">5.1.3.</span> <span class="nav-text">1个字符型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1个布尔型-1bit"><span class="nav-number">5.1.4.</span> <span class="nav-text">1个布尔型 1bit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5个引用数据类型"><span class="nav-number">5.2.</span> <span class="nav-text">5个引用数据类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java常量与变量"><span class="nav-number">6.</span> <span class="nav-text">Java常量与变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-number">6.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">6.2.</span> <span class="nav-text">变量</span></a></li></ol></li></ol></div>
             
 
           </div>
